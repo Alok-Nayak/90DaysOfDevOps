@@ -50,5 +50,5 @@ Standardizes management across all distros via systemctl.
 
 ## Daily Use Linux Commands:
 ps -aux (To view running processes and their PID)
-![ps -aux](2026/day-02/images/ps -aux.png)
+![ps -aux](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/768f0b03bcc90390e834dd2c74796b7c0bf30666/2026/day-02/images/ps%20-aux.png)
 
