@@ -49,7 +49,41 @@ Speeds up boot times with dependency-based parallel startup.
 Standardizes management across all distros via systemctl.
 
 ## Daily Use Linux Commands:
-ps -aux (To view running processes and their PID)
+
+**ps -aux** (To view running processes in detail)
+
 ![ps -aux](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/9866bb7359021f0ea5f7d7a55b602fc5fd4e9bca/2026/day-02/images/ps%20-aux.png)
+
+**top/htop** (An interactive, real-time visual monitor for managing system processes and resource usage.)
+
+![htop](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/ba9f93738ec0bd83ab7ef328650e7278bfff9b26/2026/day-02/images/htop.png)
+
+**systemctl status <service>** (It provides a quick summary of whether the Nginx service is currently active, running, or failed.)
+
+![systemctl status servicename](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/ba9f93738ec0bd83ab7ef328650e7278bfff9b26/2026/day-02/images/systemctl%20status%20nginx.png)
+
+**ps -aux | grep <service>** (Locates and lists all currently running processes to check their PIDs and resource consumption. grep used to filter the specific service. ex: nginx)
+
+![ps -aux | grep servicename](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/ba9f93738ec0bd83ab7ef328650e7278bfff9b26/2026/day-02/images/ps%20aux%20%7C%20grep%20nginx.png)
+
+**journalctl -u <service>**  (Retrieves and displays the historical and runtime system logs for any service.)
+
+![journalctl -u servicename](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/ba9f93738ec0bd83ab7ef328650e7278bfff9b26/2026/day-02/images/journalctl%20-u%20nginx.png)
+
+**kill -9 <PID>**: (Forcefully and immediately terminates a process when it is unresponsive or refuses to close normally.)
+
+![kill -9 PID](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/ba9f93738ec0bd83ab7ef328650e7278bfff9b26/2026/day-02/images/kill.png)
+
+**df -h** shows total disk space and usage across all mounted file systems.
+**du -sh** calculates the actual storage space used by a specific directory or file.
+
+![df -h and du -sh](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/ba9f93738ec0bd83ab7ef328650e7278bfff9b26/2026/day-02/images/df%20-h.png)
+
+
+
+#Thank You!
+
+
+
 
 
