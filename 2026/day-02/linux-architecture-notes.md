@@ -6,6 +6,7 @@
     3. System Utilities.
     4. Shell.
     5. Hardware.
+![Linux-Architecture](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/55c9c3624369272cf908b88165635310b7918f66/2026/day-02/images/linux-architecture.png)
 
 ### kernel 
 A linux kernel is the bridge between hardware and shell or application. Translate software commands into hardware actions. It tells the CPU what to do, basically it act as middle man between application/softwar and hardware. It allocates resources like CPU, memory to applications as per there need and make sure that one process won't affect another one.
