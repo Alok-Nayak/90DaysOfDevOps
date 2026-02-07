@@ -59,5 +59,91 @@ Higher value = Higher politeness = Lower CPU priority.  (-20 means higest priori
 - ` mount `    - Shows which physical disks are attached to which folders and with what permissions (e.g., read-only vs read-write).
 > The `mount` command is temporary. To make it survive a reboot, must add the device and mount point details to the /etc/fstab (File System Table) configuration file.
 
-                                                                                                                    
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+### Permissions & ownership
+  *Linux File Permissions*
+
+  | Read | Write | Execute |
+  |------|-------|---------|
+  |  4   |  2    |   1     |                                                                                                               
+
+- Reed+Write+Execute = 7, So Read+Write = 6, Execute = 1
+- `chmod <xxx> <file>`   - Changing permission of a file. (here *xxx* means: owner, group, other)
+ex:` chmod 755  myfile`  - Sets permissions so the Owner has full access (rwx), while Group and Others can only read and execute (r-x).
+-` chmod -R 644 <dir> `  - Recursively sets all files in a directory to be readable/writable by the Owner and read-only for everyone else.
+- ` chown <user>:<group> <file> `  -Changes both the Owner and the Group assigned to a specific file.
+- ` getfacl <file> `  -Displays the extended Access Control List (ACL) for a file.
+- ` setfacl -m u:<user>:rwx <file> ` - Modifies the ACL to grant a specific user full permissions without changing the file's primary owner or group.
+ex:` setfacl -m u:alok:rwx <myfile> `
+
+### find
+- ` find / -name <myfile>  `  -Searches the entire system (starting at /) for any file exactly named  *myfile*.
+ ` find /etc -name "*.conf" ` 
+
+- ` find </var/log> -size <+10M> ` -Find files based on the amount of disk space they use.
+- ` find <directory> -type f <time_condition> ` - To search for regular files based on their last modification time.
+``` 
+    Modified within the last N days    - `find . -type f -mtime -1` (last 24 hours)
+    Modified more than N days ago      - `find . -type f -mtime +7` (more than 7 days ago)
+    Modified within the last N minutes - `find . -type f -mmin -60` (last 60 minutes)
+
+    -n: Less than n days ago (i.e., within the last n days).
+    +n: More than n days ago.
+     n: Exactly n days ago.  
+```
+
+- ` grep <"word to be search"> <file> ` - Scans a specific file and prints every line that contains the word. ex:- ` grep "404" access.log `
+
+- ` grep -R "Exception" /var/log `      - Searches for the word "Exception" inside every single file within /var/log and its subfolders.
+  ` grep -Ri "failed" /etc/ `           - `-i` Makes it case sensitive.
+
+
+### File Inspection
+
+- ` cat <file> `              - Shows a files content on screen.
+- ` less <file> `             - Opens a file in an interactive view, allowing you to scroll through large logs without loading the whole file into memory.(allows you to search (using /) while viewing.).
+- ` head -n <10> <file> `     - Shows first 10 lines of a file.
+- ` tail -n <5> <file>  `     - Output the last 5 lines of a file.
+- ` tail -f /var/log/syslog ` - Keeps the file open and prints new lines to the screen in real-time as they are written.
+
+
+### Archives & compression
+
+- ` tar -cvf <backup.tar> </etc/nginx> `-Bundles a whole folder into a single file without compressing it yet.
+- ` tar -xvf <file.tar> `               -Unpacks a .tar bundle back into its original files and folders.
+- ` tar -cvzf <file.tar.gz> <dir> `     -Create a *gzip* file.  Bundles a directory and compresses it to save disk space.
+- ` tar -xvzf <file.tar.gz> `           -Extract a gzipped archive.
+- ` gzip <file> `                       -Compresses a single file and replaces it with a `.gz` version.(**Note:** It deletes the original file and leaves only the compressed one.).
+- ` gunzip <file.gz> `                  -Restores a `.gz` file back to its original uncompressed state.
+
+### Inodes & links
+
+- ` ls -i `  - Print the index number of each file.Use this to verify if two filenames are actually pointing to the exact same data on the disk.
+- ` stat <filename> `        -It shows you exactly when a file was last modified or when its permissions were changed. 
+- ` ln <file> <hardlink> `   -Creates a hardlinks between files. Even if you delete the original file, the data remains as long as the hard link exists.
+- ` ln -s <file> <symlink> ` -Make symbolic links.
+
+## Networking Troubleshooting
+
+### Network info
+- ` ip a `/` ip addr `    -Lists all network interfaces and their assigned IP addresses.
+- ` ip link `             -Shows the physical state of network interfaces.
+- ` ip route `            -Routing table management. Displays the "map" the server uses to decide where to send network packets.
+- ` hostname `            -Prints the DNS/system name of the machine.
+- ` hostname -I `         -Display the network address of the host. 
+- ` nmcli device status ` -Provides a high-level status of all network devices managed by the NetworkManager service.
+
+### Connectivity checks
+- ` ping google.com `       -Send ICMP ECHO_REQUEST to network hosts.
+- ` ping -c 4 google.com `  -Sends exactly four pings and then stops, providing a summary of the results.
+- ` traceroute google.com ` -Lists every hop packet passes through to reach the destination.
+- ` tracepath google.com `  -Traces path to destination discovering MTU along this path.
+- ` mtr google.com `        -Combines ping and traceroute into a live, continuously updating dashboard.
+
+### DNS troubleshooting
+- ` nslookup google.com `   -Query Internet name servers interactively.
+- ` dig google.com `/` dig +short google.com ` -DNS lookup utility.
+- ` dig google.com <MX> `   -Query specific DNS record types. (MX -Mail Exchange, A -ipv4, AAAA - ipv6, NS - Name Server)
+- ` cat /etc/resolv.conf`   -The local configuration file that tells Linux which DNS servers (like 8.8.8.8 or 1.1.1.1) to ask when looking up a domain.
+
+### Ports & sockets
+- ` ss -lntup `    -Display summary statistics for TCP, UDP, and raw sockets                                                                                                                                                                         
