@@ -2,10 +2,10 @@
 
 ##  Process Management 
 
+### View & inspect processes
 - ` ps `    - Report a snapshot of the current process.
-
 - ` ps aux ` - To see every process on the system.
-- ` pgrep <service name> `
+- ` pgrep <service name> ` or ` pgrep -a <service name>.
 - ` pidof <servicename>` -To know PID of a specific process or service.
 - ` pstree -p ` - Display a tree of processes with PIDs (Process IDs).
 
@@ -15,17 +15,37 @@
 
 - `watch -n 1 ps aux`  - To run a command in every 1 sec interval, here checking the running process in every 1 sec interval.
 
+### Kill / control processes
+
 - ` kill PID'  - To kill a running process.
 - ` kill -SIGSTOP PID`, `kill -SIGCONT PID`
 - ` kill -9 PID` -Unconditional forceful termination signal.  The process is killed instantly, regardless of its state.
-
 - ` pkill < service or process name >` -To target processes based on their name or other attributes using pattern matching.
 
-- ` nice -n <value between -20(highest priority) and 19(Lowest Priority)> <command or process>`  - Starts a new process with a specific priority.
+### Process priorities
+
+- ` nice -n <value between -20(highest priority) and 19(Lowest Priority)> <process or command>`  - Starts a new process with a specific priority. (can view the process with `htop`)
 - ` renice <value> -p <PID>`  -Updates the priority of a running process.
 Higher value = Higher politeness = Lower CPU priority.  (-20 means higest priority and 19 means lowest priority)
+
+**Example:**```
+**Real-World Scenario**: The Log Compression Crisis
+The Environment: A production server is running a high-traffic Java Application. Every night at 2:00 AM, a cron job runs a script to compress old logs (tar -czf) and move them to an S3 bucket.
+
+**The Problem**: The tar command is extremely CPU-intensive because of the compression algorithm. While the script is running, the Java Application's response time (latency) spikes from 50ms to 2000ms, causing users to experience timeouts.
+
+**Solution Phase 1**: Prevention (The nice command)
+As a DevOps engineer, you realize the log compression doesn't need to finish in 5 minutes; it can take 20 minutes as long as the web app stays fast. You modify the cron job to be "nicer" to the Java app.
+
+**Original Command**: tar -czf logs.tar.gz /var/log/app/*.log
+
+**Improved Command**: nice -n 19 tar -czf logs.tar.gz /var/log/app/*.log
+
+**The Result**: The Linux kernel sees that the web app has a priority of 0 and the compression task has a priority of 19. Whenever the web app needs CPU cycles, the kernel immediately pauses the tar command to serve the users first.
+```
 > Root privileges are required to set a negative (high priority) value to prevent regular users from crashing the system by hogging the CPU.
 
+### Debugging running processes
 
 - ` strace -p <PID> ` -Trace system calls and signals.Crucial when a process is "stuck" or "hanging"; it tells you if it's waiting for a network response, trying to read a missing file, or trapped in a loop.
 
@@ -37,6 +57,7 @@ Higher value = Higher politeness = Lower CPU priority.  (-20 means higest priori
 - ` vi <file-name> `    - Creates a file and open it in vi editor to write.
 - ' mkdir <directory name> ` -Creates a directory.
 
+### Navigation & listing
 
 - ` ls `      - List Files and Directories.
 - ` ls -lh `  - List with long format and human-readable sizes.
@@ -45,12 +66,15 @@ Higher value = Higher politeness = Lower CPU priority.  (-20 means higest priori
 - ` pwd `     - Print name of current/working directory.
 - ` cd `      - Change the shell working directory.
 
+### File operations
+
 - ` cp file1 file2 `    - Creates duplicate of *file1* and name it as *file2*.
 - ` cp -r dir1 dir2 `   - Copy directories recursively. *dir1* directory and it's files to *dir2*.
 - ` mv oldname newname `- Rename oldname with newname in same location. Or move a file from one location to other(providing path to new location).
 - ` rm file `           - Remove file or directories.
 - ` rm -rf dir `        - Forces the deletion of a directory and everything inside it without asking for confirmation.
 
+### Disk usage & space
 
 - ` df -h `    - Report file system disk space usage (human-readable).
 - ` df -i `    - Shows how many files you can still create, regardless of how much GB you have left.
@@ -146,4 +170,55 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` cat /etc/resolv.conf`   -The local configuration file that tells Linux which DNS servers (like 8.8.8.8 or 1.1.1.1) to ask when looking up a domain.
 
 ### Ports & sockets
-- ` ss -lntup `    -Display summary statistics for TCP, UDP, and raw sockets                                                                                                                                                                         
+- ` ss -lntup `      -Display summary statistics for TCP, UDP, and raw sockets.
+- ` netstat -tulnp ` -Print network connections, routing tables, and interface statistics.
+
+- ` ss -tunap `      -Display all established and non-listening sockets.
+- ` lsof -i :80 `    -Lists the process currently "owning" port 80.
+- ` lsof -iTCP -sTCP:LISTEN ` -List only files in the TCP LISTEN state.
+
+### HTTP & API's
+- ` curl https://google.com  `     -Fetches the body of the webpage or API response and prints it to the terminal.
+- ` curl -I https://google.com `   -Fetch the HTTP-header only.
+- ` curl -v https://example.com `  -Shows the entire communication "handshake," including DNS resolution, SSL certificate exchange, and the full request/response headers.
+- ` wget https://example.com `     - Download files from internet.
+
+### Firewall
+
+- ` iptables -L -n ` -Lists all active firewall rules.
+- ` iptables -S `    -Print the rules in the selected chain as iptables commands.
+- ` firewall-cmd --list-all ` -Provides a high-level summary of the firewalld configuration, including active zones, allowed services, and open ports.
+- ` firewall-cmd --list-ports ` -List ports added for a zone.
+
+### Packet Capture
+
+- ` tcpdump -i any `          -Captures traffic on all active interfaces.
+- ` tcpdump -i eth0 port 80 ` -Filter packets based on a specific port number.
+- `tcpdump -nn -i eth0`       - Don't convert addresses (host addresses, port numbers, etc.) to names.
+``` 
+-c 10: Capture only 10 packets and then stop.
+-w file.pcap: Write the packets to a file so you can open them in Wireshark later.
+```
+
+### Remote access
+- ` ssh user@host `              -Connects you to a remote server's terminal over a secure, encrypted channel.
+- ` ssh -i key.pem user@host `   -Connects to a server using a specific private key file instead of a password.
+- ` scp file user@host:/path `   -Copies a file from your local machine to a remote server (or vice-versa) using the SSH protocol.
+- ` rsync -avz dir user@host:/path `     -Synchronizes directories between locations. It is "smart" because it only sends the parts of files that have changed.
+
+
+#### SSH Client Configuration
+```
+1. Create or open the config file "vi ~/.ssh/config".
+2. Add the HOST entry like this:
+   
+ Host prod
+    HostName 1.2.3.4
+    User ubuntu
+    IdentityFile ~/.ssh/my-prod-key.pem
+    Port 22
+
+3. Set Correct Permission "chmod 600 ~/.ssh/config".
+4. Use the shortcut "ssh prod"
+
+```                                                                                                                                                            
