@@ -5,9 +5,15 @@
 ### View & inspect processes
 - ` ps `    - Report a snapshot of the current process.
 - ` ps aux ` - To see every process on the system.
+
+![inspect process](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/ps%20and%20ps%20aux.png)
+
+
 - ` pgrep <service name> ` or ` pgrep -a <service name>.
 - ` pidof <servicename> ` -To know PID of a specific process or service.
 - ` pstree -p ` - Display a tree of processes with PIDs (Process IDs).
+
+![inspect process](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/pgrep%2C%20pidof%2C%20pstree.png)
 
 - ` top `/` htop ` -Intractive process viwer.
 
@@ -15,12 +21,17 @@
 
 - `watch -n 1 ps aux`  - To run a command in every 1 sec interval, here checking the running process in every 1 sec interval.
 
+![htop](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/htop%20-u%20alok-nayak.png)
+
 ### Kill / control processes
 
 - ` kill PID'  - To kill a running process.
 - ` kill -SIGSTOP PID`, `kill -SIGCONT PID`
 - ` kill -9 PID` -Unconditional forceful termination signal.  The process is killed instantly, regardless of its state.
 - ` pkill < service or process name >` -To target processes based on their name or other attributes using pattern matching.
+
+![kill](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/kill%20pid.png)
+![pkill](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/pkill%20nginx.png)
 
 ### Process priorities
 
@@ -46,6 +57,11 @@ As a DevOps engineer, you realize the log compression doesn't need to finish in 
 ```
 > Root privileges are required to set a negative (high priority) value to prevent regular users from crashing the system by hogging the CPU.
 
+![nicenes](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/nicedness%200.png)
+**renice**
+![renice](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/renice%20a%20process.png)
+![renice nginx.](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/renice-ngnix.png)
+
 ### Debugging running processes
 
 - ` strace -p <PID> ` -Trace system calls and signals.Crucial when a process is "stuck" or "hanging"; it tells you if it's waiting for a network response, trying to read a missing file, or trapped in a loop.
@@ -58,8 +74,11 @@ As a DevOps engineer, you realize the log compression doesn't need to finish in 
 rt_sigsuspend,The process is waiting for a signal to wake up.
 
 ```
+![strace](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/strace%20-p%20pid.png)
 
 - ` lsof -p <PID> `   -Shows every file, directory, and network socket that a specific process currently has open. Used to identify which configuration files a process is actually using or to see which log file it is writing to when you can't find the output.
+
+![lsof](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/lsof%20-p%20pid.png)
 
 ## File System (Navigation, Disk, Permissions, Search, Cleanup)
 
@@ -76,6 +95,8 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
 - ` pwd `     - Print name of current/working directory.
 - ` cd `      - Change the shell working directory.
 
+![filesystem](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/filesystem_navigation.png)
+
 ### File operations
 
 - ` cp file1 file2 `    - Creates duplicate of *file1* and name it as *file2*.
@@ -83,6 +104,8 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
 - ` mv oldname newname `- Rename oldname with newname in same location. Or move a file from one location to other(providing path to new location).
 - ` rm file `           - Remove file or directories.
 - ` rm -rf dir `        - Forces the deletion of a directory and everything inside it without asking for confirmation.
+
+![file operation](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/file_operation.png)
 
 ### Disk usage & space
 
@@ -94,6 +117,10 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
 - ` mount `      - Shows which physical disks are attached to which folders and with what permissions (e.g., read-only vs read-write).
 - ` findmnt -t nosquashfs,notmpfs,nodevtmpfs ` -Find a filesystem; the -t flag limits the set of filesystems by type (the no prefix excludes them).
 > The `mount` command is temporary. To make it survive a reboot, must add the device and mount point details to the /etc/fstab (File System Table) configuration file.
+
+![disk](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/disk_use_and_space.png)
+
+![mount](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/lsblk-mount.png)
 
 ### Permissions & ownership
   *Linux File Permissions*
@@ -112,10 +139,11 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
 - ` setfacl -m u:<user>:rwx <file> ` - Modifies the ACL to grant a specific user full permissions without changing the file's primary owner or group.
 ex:` setfacl -m u:alok:rwx <myfile> `
 
+![file permission](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/chmod.png)
+
 ### find
 - ` find / -name <myfile>  `  -Searches the entire system (starting at /) for any file exactly named  *myfile*.
  ` find /etc -name "*.conf" ` 
-
 - ` find </var/log> -size <+10M> ` -Find files based on the amount of disk space they use.
 - ` find <directory> -type f <time_condition> ` - To search for regular files based on their last modification time.
 ``` 
@@ -127,6 +155,7 @@ ex:` setfacl -m u:alok:rwx <myfile> `
     +n: More than n days ago.
      n: Exactly n days ago.  
 ```
+![find] (https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/find.png)
 
 - ` grep <"word to be search"> <file> ` - Scans a specific file and prints every line that contains the word. ex:- ` grep "404" access.log `
 
@@ -142,6 +171,7 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` tail -n <5> <file>  `     - Output the last 5 lines of a file.
 - ` tail -f /var/log/syslog ` - Keeps the file open and prints new lines to the screen in real-time as they are written.
 
+![file inspection](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/file-inspection.png)
 
 ### Archives & compression
 
@@ -152,12 +182,16 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` gzip <file> `                       -Compresses a single file and replaces it with a `.gz` version.(**Note:** It deletes the original file and leaves only the compressed one.).
 - ` gunzip <file.gz> `                  -Restores a `.gz` file back to its original uncompressed state.
 
+![file compression](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/compression.png)
+
 ### Inodes & links
 
 - ` ls -i `  - Print the index number of each file.Use this to verify if two filenames are actually pointing to the exact same data on the disk.
 - ` stat <filename> `        -It shows you exactly when a file was last modified or when its permissions were changed. 
 - ` ln <file> <hardlink> `   -Creates a hardlinks between files. Even if you delete the original file, the data remains as long as the hard link exists.
 - ` ln -s <file> <symlink> ` -Make symbolic links.
+
+![links](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/inode-links.png)
 
 ## Networking Troubleshooting
 
@@ -169,6 +203,8 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` hostname -I `         -Display the network address of the host. 
 - ` nmcli device status ` -Provides a high-level status of all network devices managed by the NetworkManager service.
 
+![network info](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/networkinfo.png)
+
 ### Connectivity checks
 - ` ping google.com `       -Send ICMP ECHO_REQUEST to network hosts.
 - ` ping -c 4 google.com `  -Sends exactly four pings and then stops, providing a summary of the results.
@@ -176,19 +212,27 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` tracepath google.com `  -Traces path to destination discovering MTU along this path.
 - ` mtr google.com `        -Combines ping and traceroute into a live, continuously updating dashboard.
 
+![connectivity](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/connectivitychecks.png)
+
 ### DNS troubleshooting
 - ` nslookup google.com `   -Query Internet name servers interactively.
 - ` dig google.com `/` dig +short google.com ` -DNS lookup utility.
 - ` dig google.com <MX> `   -Query specific DNS record types. (MX -Mail Exchange, A -ipv4, AAAA - ipv6, NS - Name Server)
 - ` cat /etc/resolv.conf`   -The local configuration file that tells Linux which DNS servers (like 8.8.8.8 or 1.1.1.1) to ask when looking up a domain.
 
+![DNS](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/dns.png)
+
 ### Ports & sockets
 - ` ss -lntup `      -Display summary statistics for TCP, UDP, and raw sockets.
 - ` netstat -tulnp ` -Print network connections, routing tables, and interface statistics.
 
+![ports](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/netstat.png)
+
 - ` sudo ss -tunap `      -Display all established and non-listening sockets.
 - ` sudo lsof -i :80 `    -Lists the process currently "owning" port 80.
 - ` lsof -iTCP -sTCP:LISTEN ` -List only files in the TCP LISTEN state.
+
+![ports](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/ports%26sockets.png)
 
 ### HTTP & API's
 - ` curl https://google.com  `     -Fetches the body of the webpage or API response and prints it to the terminal.
@@ -196,9 +240,14 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` curl -v https://example.com `  -Shows the entire communication "handshake," including DNS resolution, SSL certificate exchange, and the full request/response headers.
 - ` wget https://example.com `     - Download files from internet.
 
+![http](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/http.png)
+
 ### Firewall
 
 - ` iptables -L -n ` -Lists all active firewall rules.
+
+![iptables](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/firewall1.png)
+
 - ` iptables -S `    -Print the rules in the selected chain as iptables commands.
 - ` firewall-cmd --list-all ` -Provides a high-level summary of the firewalld configuration, including active zones, allowed services, and open ports.
 - ` firewall-cmd --list-ports ` -List ports added for a zone.
@@ -212,6 +261,7 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 -c 10: Capture only 10 packets and then stop.
 -w file.pcap: Write the packets to a file so you can open them in Wireshark later.
 ```
+![firewall](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/firewall2.png)
 
 ### Remote access
 - ` ssh user@host `              -Connects you to a remote server's terminal over a secure, encrypted channel.
