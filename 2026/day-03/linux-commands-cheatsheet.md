@@ -49,6 +49,15 @@ As a DevOps engineer, you realize the log compression doesn't need to finish in 
 ### Debugging running processes
 
 - ` strace -p <PID> ` -Trace system calls and signals.Crucial when a process is "stuck" or "hanging"; it tells you if it's waiting for a network response, trying to read a missing file, or trapped in a loop.
+```
+**Output*********Meaning****
+
+"openat(...) = -1 ENOENT",The process is trying to open a file that doesn't exist.
+"read(3, ...)",The process is reading data from a file or socket (File Descriptor 3).
+"write(1, ""hello"", 5)","The process is printing ""hello"" to Standard Out (File Descriptor 1)."
+rt_sigsuspend,The process is waiting for a signal to wake up.
+
+```
 
 - ` lsof -p <PID> `   -Shows every file, directory, and network socket that a specific process currently has open. Used to identify which configuration files a process is actually using or to see which log file it is writing to when you can't find the output.
 
