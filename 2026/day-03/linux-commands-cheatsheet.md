@@ -28,7 +28,8 @@
 - ` renice <value> -p <PID>`  -Updates the priority of a running process.
 Higher value = Higher politeness = Lower CPU priority.  (-20 means higest priority and 19 means lowest priority)
 
-**Example:**```
+**Example:**
+```
 **Real-World Scenario**: The Log Compression Crisis
 The Environment: A production server is running a high-traffic Java Application. Every night at 2:00 AM, a cron job runs a script to compress old logs (tar -czf) and move them to an S3 bucket.
 
