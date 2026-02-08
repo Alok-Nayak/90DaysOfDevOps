@@ -6,7 +6,7 @@
 - ` ps `    - Report a snapshot of the current process.
 - ` ps aux ` - To see every process on the system.
 - ` pgrep <service name> ` or ` pgrep -a <service name>.
-- ` pidof <servicename>` -To know PID of a specific process or service.
+- ` pidof <servicename> ` -To know PID of a specific process or service.
 - ` pstree -p ` - Display a tree of processes with PIDs (Process IDs).
 
 - ` top `/` htop ` -Intractive process viwer.
@@ -65,7 +65,7 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
 
 - ` touch <file-name> ` - Creates a file.
 - ` vi <file-name> `    - Creates a file and open it in vi editor to write.
-- ' mkdir <directory name> ` -Creates a directory.
+- ` mkdir <directory name> ` -Creates a directory.
 
 ### Navigation & listing
 
@@ -86,11 +86,13 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
 
 ### Disk usage & space
 
-- ` df -h `    - Report file system disk space usage (human-readable).
-- ` df -i `    - Shows how many files you can still create, regardless of how much GB you have left.
-- ` du -sh * ` - Calculates the total size of every file and folder in the current directory.
-- ` lsblk `    - Shows a tree-like view of all physical disks, partitions, and LVM volumes.
-- ` mount `    - Shows which physical disks are attached to which folders and with what permissions (e.g., read-only vs read-write).
+- ` df -h `      - Report file system disk space usage (human-readable).
+- ` df -i `      - Shows how many files you can still create, regardless of how much GB you have left.
+- ` du -sh * `   - Calculates the total size of every file and folder in the current directory.
+- ` lsblk `      - Shows all the physical/logical structure of disks and partitions.
+- ` lsblk -e 7 ` - To hide Snap loops and focus on actual storage drives.
+- ` mount `      - Shows which physical disks are attached to which folders and with what permissions (e.g., read-only vs read-write).
+- ` findmnt -t nosquashfs,notmpfs,nodevtmpfs ` -Find a filesystem; the -t flag limits the set of filesystems by type (the no prefix excludes them).
 > The `mount` command is temporary. To make it survive a reboot, must add the device and mount point details to the /etc/fstab (File System Table) configuration file.
 
 ### Permissions & ownership
@@ -101,9 +103,10 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
   |  4   |  2    |   1     |                                                                                                               
 
 - Reed+Write+Execute = 7, So Read+Write = 6, Execute = 1
-- `chmod <xxx> <file>`   - Changing permission of a file. (here *xxx* means: owner, group, other)
-ex:` chmod 755  myfile`  - Sets permissions so the Owner has full access (rwx), while Group and Others can only read and execute (r-x).
--` chmod -R 644 <dir> `  - Recursively sets all files in a directory to be readable/writable by the Owner and read-only for everyone else.
+
+- `chmod <xxx> <file>`   - Changing permission of a file. (here "xxx" means: owner, group, other)
+> ex:` chmod 755  myfile`  - Sets permissions so the Owner has full access (rwx), while Group and Others can only read and execute (r-x).
+- ` chmod -R 644 <dir> `  - Recursively sets all files in a directory to be readable/writable by the Owner and read-only for everyone else.
 - ` chown <user>:<group> <file> `  -Changes both the Owner and the Group assigned to a specific file.
 - ` getfacl <file> `  -Displays the extended Access Control List (ACL) for a file.
 - ` setfacl -m u:<user>:rwx <file> ` - Modifies the ACL to grant a specific user full permissions without changing the file's primary owner or group.
@@ -183,8 +186,8 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` ss -lntup `      -Display summary statistics for TCP, UDP, and raw sockets.
 - ` netstat -tulnp ` -Print network connections, routing tables, and interface statistics.
 
-- ` ss -tunap `      -Display all established and non-listening sockets.
-- ` lsof -i :80 `    -Lists the process currently "owning" port 80.
+- ` sudo ss -tunap `      -Display all established and non-listening sockets.
+- ` sudo lsof -i :80 `    -Lists the process currently "owning" port 80.
 - ` lsof -iTCP -sTCP:LISTEN ` -List only files in the TCP LISTEN state.
 
 ### HTTP & API's
