@@ -33,7 +33,8 @@
 
 - ` journalctl -u docker -f ` -To check live logs of a service, here docker.
 - ` journalctl -u docker -n 10 ` - To check last 10 logs immideatly.
-![journalctl] (https://github.com/Alok-Nayak/90DaysOfDevOps/blob/828ce5ae33c479d58bf5aa9c0e7132cc57c9f0b7/2026/day-04/day-04-images/journalctl%20-u%20docker%2C%20ss%20-lntp.png)
+
+![journalctl](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/828ce5ae33c479d58bf5aa9c0e7132cc57c9f0b7/2026/day-04/day-04-images/journalctl%20-u%20docker%2C%20ss%20-lntp.png)
 
 ![8080](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/828ce5ae33c479d58bf5aa9c0e7132cc57c9f0b7/2026/day-04/day-04-images/port8080.png)
 ![80](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/828ce5ae33c479d58bf5aa9c0e7132cc57c9f0b7/2026/day-04/day-04-images/port80.png)
