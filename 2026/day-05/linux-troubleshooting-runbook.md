@@ -7,7 +7,7 @@
 - ` hostnamectl `  -Shows the OS, Kernel, and Architecture in one view.
 > These commands helps to check about the OS info and during incidents we can Know the distribution and kernel version and this tells me which set of commands and configuration paths I need to use.
 
-![os info](   )
+![env_info](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/env-info.png)
 
 ## Filesystem sanity
 
@@ -16,7 +16,7 @@
 
 > Able to create and write files under ` /tmp `.
 
-![filesystem](   )
+![filesystem](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/day05-filesystem-sanity.png)
 
 ## Service state
 
@@ -32,7 +32,7 @@
    - Attempt controlled restart: `systemctl restart cron`.
    - Check for repeated failures in systemd status.
    - Move immediately to logs for root cause.
-![systemctl](  )
+![systemctl](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/systemctl.png)
 
 ## CPU & Memory Snapshot
 
@@ -51,8 +51,8 @@
     - Check for memory leaks or runaway processes.
     - Consider restarting or isolating the service.
 
-![cpu & Memory](  )
-
+![cpu & Memory](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/cpu%26memory.png)
+![htop](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/htop.png)
 ## Disk & IO
  
 - ` df -h ` -Shows total space is available on mounted partitions and disks.\
@@ -80,7 +80,7 @@
     - Identify high IO processes.
     - Consider disk expansion or performance tuning.
 
-![Disk & IO](  )
+![Disk & IO](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/disk%26io.png)
 
 ## Network
 
@@ -102,8 +102,8 @@
     - Restart network services if safe.
     - Validate DNS and routing configuration.
 
-![Network](  )
-
+![Network](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/Network.png)
+![Network-1](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/network1.png)
 ## Logs Reviewe
 
 - `journalctl -u cron -n 10` -Query the systemd journal; -u (unit) filters by service, -n (lines) limits the output.
@@ -116,7 +116,7 @@
 - **Observations**
     - No critical errors in recent cron logs.
     - No repeated failures or permission issues detected.
-![Logs](  )
+![Logs](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/logs.png)
 
 ## Quick Findings
 - System health is stable.
