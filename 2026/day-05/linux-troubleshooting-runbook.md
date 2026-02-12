@@ -41,12 +41,12 @@
 - ` free -h `  - It shows the systemwide free space avilable.
 - ` uptime `   -Tell how long the system has been running, how many users are currently logged on, and the system load averages for the past 1, 5, and 15 minutes.
 
-**Observations**
+- **Observations**
     - Cron process consuming negligible CPU and memory.
     - System load average is within acceptable limits.
     - Sufficient free and available memory.
 
-**If this worsens**
+- **If this worsens**
     - Identify CPU or memory spikes via `top` or `htop`.
     - Check for memory leaks or runaway processes.
     - Consider restarting or isolating the service.
@@ -70,12 +70,12 @@
     - ` await `(r_await/w_await): Average time for a request to be served.
     - ` %iowait` (CPU Metric): Percentage of time the CPU is sitting idle because it's waiting for the disk to finish a task.
 ```
-**Observations**
+- **Observations**
     -  Disk usage within safe thresholds.
     - `/var/log` consuming 614M  space.
     -  No abnormal disk latency or high `%util`.
 
-**If this worsens**
+- **If this worsens**
     - Clean up or rotate logs.
     - Identify high IO processes.
     - Consider disk expansion or performance tuning.
@@ -92,12 +92,12 @@
 - `ping -c 3 8.8.8.8`  -Tests basic "reachability" to a specific IP address.(Here to network hosts. `-c 3` limits it to 3 packets.
 - `nc -vz google.com 80 ` -Arbitrary TCP and UDP connections and listens. The -v flag enables verbosity (tells you what's happening), and the -z flag specifies zero-I/O mode (scan only, don't send data).
 
-**Observations**
+- **Observations**
     - Network interfaces are up.
     - Routing and connectivity working as expected.
     - No unusual listening ports affecting the service.
 
-**If this worsens**
+- **If this worsens**
     - Check firewall rules.
     - Restart network services if safe.
     - Validate DNS and routing configuration.
@@ -113,7 +113,7 @@
 - `grep CRON /var/log/syslog | tail -n 10 ` -Searches for the string "CRON" in the traditional system log file and pipes it to tail for the last 10 entries.
 - `journalctl -u cron -f `-Output the most recent entries and continue to print new entries as they are appended to the journal. 
 
-**Observations**
+- **Observations**
     - No critical errors in recent cron logs.
     - No repeated failures or permission issues detected.
 ![Logs](  )
