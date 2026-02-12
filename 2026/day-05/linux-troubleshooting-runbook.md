@@ -29,9 +29,9 @@
     - Main PID observed and service is managed by systemd
 
 **If this worsens**
-   - 1. Attempt controlled restart: `systemctl restart cron`.
-   - 2. Check for repeated failures in systemd status.
-   - 3. Move immediately to logs for root cause.
+   - Attempt controlled restart: `systemctl restart cron`.
+   - Check for repeated failures in systemd status.
+   - Move immediately to logs for root cause.
 ![systemctl](  )
 
 ## CPU & Memory Snapshot
@@ -47,9 +47,9 @@
     - Sufficient free and available memory.
 
 **If this worsens**
-    - 1. Identify CPU or memory spikes via `top` or `htop`.
-    - 2. Check for memory leaks or runaway processes.
-    - 3. Consider restarting or isolating the service.
+    - Identify CPU or memory spikes via `top` or `htop`.
+    - Check for memory leaks or runaway processes.
+    - Consider restarting or isolating the service.
 
 ![cpu & Memory](  )
 
@@ -76,9 +76,9 @@
     -  No abnormal disk latency or high `%util`.
 
 **If this worsens**
-    - 1. Clean up or rotate logs.
-    - 2. Identify high IO processes.
-    - 3. Consider disk expansion or performance tuning.
+    - Clean up or rotate logs.
+    - Identify high IO processes.
+    - Consider disk expansion or performance tuning.
 
 ![Disk & IO](  )
 
@@ -98,9 +98,9 @@
     - No unusual listening ports affecting the service.
 
 **If this worsens**
-    - 1. Check firewall rules.
-    - 2. Restart network services if safe.
-    - 3. Validate DNS and routing configuration.
+    - Check firewall rules.
+    - Restart network services if safe.
+    - Validate DNS and routing configuration.
 
 ![Network](  )
 
