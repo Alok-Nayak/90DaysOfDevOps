@@ -10,9 +10,9 @@
     - `/root` is the root user’s home directory, which is not the same as `/`.  
 
         - **I would use this when...**
-            - I would use `/` when i need to understand the overall filesystem layout or locate major system directories.  
-
-![root_dir]()
+            - I would use `/` when i need to understand the overall filesystem layout or locate major system directories.
+    
+   - ![root_dir]()
 
 - **/home ** - User home directories
 - **/root** - Root user's home directory
