@@ -12,10 +12,20 @@
         - **I would use this when...**
             - I would use `/` when i need to understand the overall filesystem layout or locate major system directories.
     
-   - ![root_dir]()
+   - ![root_dir]()  
 
-- **/home ** - User home directories
-- **/root** - Root user's home directory
+- **/home** - User home directories.
+    - Every non-root user has personal directories inside `/home`.
+    - Each user can create, delete, or modify files only in their own home directory and cannot access others’ home directories.
+    - Under `/home` there are two directories: `/home/alok-nayak`, which contains all my files.  
+
+        - **I would use this when...**  
+            - Masnaging user data, checking permissions, or troubleshoot user specific issues.
+    
+    - ![hom-dir]()  
+
+- **/root** - Root user's home directory.
+    -
 - **/etc** - Configuration files
 - **/var/log** - Log files (very important for DevOps!)
 - **/tmp** - Temporary files
