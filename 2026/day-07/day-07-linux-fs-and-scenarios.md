@@ -71,7 +71,7 @@
     
          - **I would use this when...**
             - Verifying core system binaries exist, troubleshooting boot failures, or diagnosing PATH-related command issues.
-    - ![bin]()
+    - ![bin](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/01b5e48330862cf3df377d2910923eca22d0c0ec/2026/day-07/day-07-snapshots/bin.png)
 
 - **/sbin** - - User command binaries.
     - `/sbin` is similar to `/bin`, but it contains applications that only the superuser will need.
@@ -86,7 +86,7 @@
             - Checking which binary version is being executed.
             - Troubleshooting PATH misconfigurations.
 
-    - ![/usr/bin]()  
+    - ![/usr/bin](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/c0fe76bba518c4fc645c6daf4b3bc38374ba48de/2026/day-07/day-07-snapshots/usr-bin.png)  
 
 - **/opt** -Optional/third-party applications.  
     - /opt is used for optional or third-party software installations.
@@ -97,4 +97,4 @@
         - **I would use this when...**  
             - Deploying custom applications, managing third-party software, or troubleshooting manually installed enterprise tools.
 
-    - ![/opt]()  
+    - ![/opt](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/c0fe76bba518c4fc645c6daf4b3bc38374ba48de/2026/day-07/day-07-snapshots/opt.png)  
