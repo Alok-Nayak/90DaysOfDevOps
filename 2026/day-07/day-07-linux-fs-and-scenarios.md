@@ -12,7 +12,7 @@
         - **I would use this when...**
             - I would use `/` when i need to understand the overall filesystem layout or locate major system directories.
     
-    - ![root_dir]()  
+    - ![root_dir](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/fdb1cacdd75a6003dc1f84869ec2fc0ae637e538/2026/day-07/day-07-snapshots/root-dir.png)  
 
 - **/home** - User home directories.
     - Every non-root user has personal directories inside `/home`.
@@ -22,7 +22,7 @@
         - **I would use this when...**  
             - Masnaging user data, checking permissions, or troubleshoot user specific issues.
     
-    - ![hom-dir]()  
+    - ![hom-dir](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/fdb1cacdd75a6003dc1f84869ec2fc0ae637e538/2026/day-07/day-07-snapshots/home-dir.png)  
 
 - **/root** - Root user's home directory.  
     - It is separate from the top-level root directory (/) of the entire filesystem and typically contains configuration files and other data specific to the administrative user. 
@@ -32,7 +32,7 @@
         - **I would use this when...***
             -Performing administrative tasks or reviewing root-specific configuration files.  
 
-    - ![root-home-dir]()
+    - ![root-home-dir](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/fdb1cacdd75a6003dc1f84869ec2fc0ae637e538/2026/day-07/day-07-snapshots/admin-root-dir.png)
 
 - **/etc** - Configuration files.
     - It contains most, if not all system-wide configuration files.
@@ -42,7 +42,7 @@
 
         - **I would use this when...**  
             - I would use `/etc` when modifying or troubleshooting service configurations like SSH, cron, nginx, or networking.
-    - ![etc-dir]()
+    - ![etc-dir](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/fdb1cacdd75a6003dc1f84869ec2fc0ae637e538/2026/day-07/day-07-snapshots/etc_dir.png)
 
 - **/var/log** - Log files (very important for DevOps!)
     - `/var` contains things like logs in the `/var/log` subdirectories.
@@ -52,7 +52,7 @@
         - **I would use this when...**  
             -Investigating production issues, checking logs for errors, analyzing disk space usage, or troubleshooting application state problems.  
 
-    - ![var]()  
+    - ![var](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/fdb1cacdd75a6003dc1f84869ec2fc0ae637e538/2026/day-07/day-07-snapshots/var.png)  
 
 - **/tmp** - Temporary files.
     - Contains temporary files, usually placed there by applications that are running or by users.  
@@ -60,7 +60,7 @@
 
         - **I would use this when..**
             - Testing scripts, storing temporary deployment artifacts, or diagnosing application failures caused by permission or disk space issues.
-    - ![temp]()
+    - ![temp](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/fdb1cacdd75a6003dc1f84869ec2fc0ae637e538/2026/day-07/day-07-snapshots/tmp.png)
 
 ## Additional Directories (Good To Know)
 
