@@ -98,3 +98,43 @@
             - Deploying custom applications, managing third-party software, or troubleshooting manually installed enterprise tools.
 
     - ![/opt](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/c0fe76bba518c4fc645c6daf4b3bc38374ba48de/2026/day-07/day-07-snapshots/opt.png)  
+
+## Part 2: Scenario-Based Practice
+
+### Scenario 1: Service Not Starting
+
+```
+A web application service called 'myapp' failed to start after a server reboot.
+What commands would you run to diagnose the issue?
+Write at least 4 commands in order
+```  
+**My Solution:**
+- **Step 1:** Check service status
+```bash
+systemctl status myapp
+```
+**why?**: To chek if myapp service has been active, stopped or failed.
+
+- **Step 2:**  What do the logs say?
+```bash
+journalctl -u myapp -n 50
+```
+- **Why ?** : To check if any error happend.
+
+- **Step 3:** Is it enabled to start on boot?
+```bash
+systemctl is-enabled myapp
+```
+- **Why?** : To know if it will start automatically after reboot.
+
+**What I learned:** Always check status first, then investigate based on what you see.
+
+### Scenario 2: High CPU Usage
+
+```
+Your manager reports that the application server is slow.
+You SSH into the server. What commands would you run to identify
+which process is using high CPU?
+```
+**My Solution:**
+- **Step 1:** 
