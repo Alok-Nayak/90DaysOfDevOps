@@ -136,5 +136,128 @@ Your manager reports that the application server is slow.
 You SSH into the server. What commands would you run to identify
 which process is using high CPU?
 ```
+
 **My Solution:**
-- **Step 1:** 
+- **Step 1:** Check the cpu load over the last 1, 5, and 15 minutes.
+```bash
+uptime
+```
+**why?**: If the load average is more than the cpu core then i will check which process is taking that cpu.
+
+- **Step 2:** Check CPU core
+```bash
+nproc
+```
+- **Why ?** : To compare the load average.
+
+- **Step 3:** Check which process causing the cpu spike
+```bash
+htop
+```
+```
+ps aux --sort=-%cpu | head -10
+```
+- **Why?** : To know which process is taking the cpu.
+
+- **Step 4:** Check if the server out of RAM (si/so > 0), disk-bound (wa is high), or CPU-maxed (id is 0).  
+```bash
+vmstat 1 10
+```
+- **Why?** : 
+
+- **Step 4:** Check Disk.  if %util is near 100% and await is high disk is the bottleneck, even if the CPU is idle.
+```bash
+iostat -xz 1 3 sda
+```
+- **Why?** : To know if %util is near 100% and await is high disk is the bottleneck, even if the CPU is idle.
+
+**What I learned :** If the server slow then check the cpu,disk performance, I/O, network, application log and then dignose accordingly.
+
+### Scenario 3 : Finding Service Logs
+```
+A developer asks: "Where are the logs for the 'docker' service?"
+The service is managed by systemd.
+What commands would you use?
+```
+**My Solution:**
+- **Step 1:** Check the service status.
+```bash
+systemctl status docker
+```
+**why?**: To check the docker status
+
+- **Step 2:** Check logs 
+```bash
+journalctl -u docker
+```
+- **Why ?** : To see all logs.
+
+- **Step 3:**  To see latest logs.
+```bash
+journalctl -u docker -n 50
+```
+```
+jpurnalctl -u  docker -f 
+```
+- **Why?** : Checking latest 50 logs and live logs.
+
+- **Step 4:** Check logs of specific time range.
+```bash
+journalctl -u docker --since "1 hour ago"
+```
+
+- **Step 4:** Chek only error or warning in logs.
+```bash
+journalctl -u docker -p err
+```
+```
+journalctl -u docker -p warning
+```
+- **Why?** : So we can directly spot the issue.
+
+**What I learned :** If theservice is managed by systemd we can see logs using journalctl.
+
+
+### Scenario 4: File Permissions Issue
+```
+A script at /home/user/backup.sh is not executing.
+When you run it: ./backup.sh
+You get: "Permission denied"
+What commands would you use to fix this?
+```
+
+**My Solution:**
+- **Step 1:** Check the file pwermission.
+```bash
+ls -l /home/user/backup.sh
+
+Look for: -rw-r--r-- (notice no 'x' = not executable)
+```
+**why?**: If there is no execute permission for user then that's the issue.
+
+- **Step 2:** Add execute permission
+```bash
+chmod +x /home/user/backup.sh
+
+or, 
+
+chmod  731 /home/user/backup.sh
+```
+- **Why ?** : Giving execute permisssion to all.
+
+- **Step 3:**  Verify it worked.
+```bash
+ls -l /home/user/backup.sh
+```
+```
+Look for: -rwxr-xr-x (notice 'x' = executable)
+```
+- **Why?** : Checking the perissions.
+
+- **Step 4:** Try running it.
+```bash
+./backup.sh
+```
+
+
+
