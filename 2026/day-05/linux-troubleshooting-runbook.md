@@ -90,7 +90,7 @@
 - `ip -br -c addr `  -Display IP addresses in a brief format with color coding.
 - `ip route ` - Show table routes.
 - `ping -c 3 8.8.8.8`  -Tests basic "reachability" to a specific IP address.(Here to network hosts. `-c 3` limits it to 3 packets.
-- `nc -vz google.com 80 ` -Arbitrary TCP and UDP connections and listens. The -v flag enables verbosity (tells you what's happening), and the -z flag specifies zero-I/O mode (scan only, don't send data).
+- `nc -vz google.com 80 ` -"TCP handshake" to verify if a service is listening and reachable through the network and firewall.. The -v flag enables verbosity (tells you what's happening), and the -z flag specifies zero-I/O mode (scan only, don't send data).
 
 - **Observations**
     - Network interfaces are up.
