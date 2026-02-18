@@ -10,7 +10,7 @@ git -v or git --version
 
 ### Setting up git identity
 
-** Check Global Configuration. **
+**Check Global Configuration.**
 ```bash
 - git config --global --list 
 - git config --list
@@ -33,7 +33,7 @@ git -v or git --version
 ```
 ### TASK-3 : Create Your Git Commands Reference
 1. created `git-commands.md` inside `devops-git-practice` directory.
-2. Added commands for:
+2. Added commands for :
     - Setup and Config.  
     - Basic Workflow.  
     - Viweing Chnages.  
@@ -41,3 +41,4 @@ git -v or git --version
 
 
 
+<F2>
