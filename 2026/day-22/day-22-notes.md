@@ -17,7 +17,7 @@ git -v or git --version
 - git config --global user.name Alok-Nayak
 - git config --global user.email "aloknayak.contact@gmail.com"
 ```
-![git config ]()
+![git config ](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f0d088db13b75acffa161eda5e45b03d5de252d5/2026/day-22/day-22-git-snapshots/git-config.png)
 
 ### TASK-2 : Create Your Git Project
 
@@ -31,20 +31,22 @@ git -v or git --version
 3. git init
 4. git status
 ```
+![git init](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f0d088db13b75acffa161eda5e45b03d5de252d5/2026/day-22/day-22-git-snapshots/git%20init.png)
 ### TASK-3 : Create Your Git Commands Reference
 1. created `git-commands.md` inside `devops-git-practice` directory.
 2. Added commands for :
     - Setup and Config.  
     - Basic Workflow.  
     - Viweing Chnages.  
+![git commnad](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f0d088db13b75acffa161eda5e45b03d5de252d5/2026/day-22/day-22-git-snapshots/task-3-1.png)
 
 ### TASK-4 : Stage and Commit
 1. Stagged files with ` git add . `.
 2. Checked what is staged with ` git status `.
 3. Added a commit message ` docs: added devops-git-practice.md file `.
 4. Viwed commit history with ` git log --oneline `.
-![stage&commit]()
-
+![stage&commit](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f0d088db13b75acffa161eda5e45b03d5de252d5/2026/day-22/day-22-git-snapshots/Stage%20and%20Commit.png)
+![commit history](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f0d088db13b75acffa161eda5e45b03d5de252d5/2026/day-22/day-22-git-snapshots/commit%20history.png)
 
 ### Task 5: Make More Changes and Build History
 Done and pushed.
