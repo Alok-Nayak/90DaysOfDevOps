@@ -2,9 +2,9 @@
 
 ## Setup & Config
 
-` git init `    :Iniitialize git.
-` git config --global user.name Alok-Nayak ` :Set global Username.
-` git config --global user.email "aloknayak.contact@gmail.com" ` : Set global email addr.
+` git init `    - Iniitialize git.  
+` git config --global user.name Alok-Nayak ` - Set global Username.  
+` git config --global user.email "aloknayak.contact@gmail.com" ` - Set global email addr.  
 
 - **To unset global config. user and email.**
 ```bash
