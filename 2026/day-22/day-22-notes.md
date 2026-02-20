@@ -62,12 +62,14 @@ With "git add" we can add the files/dir from workarea to staging area and after 
 - Q2. What does the staging area do? Why doesn't Git just commit directly?
 ```bash
 The staging area gives us freedom to check the files we are going to commit, so any thing needs to change we can restore and make changes and then commit also we can add selective files to commit and finally push to repo.
-
+```
 - Q3. What information does git log show you?
+
 ```bash
 git log shows commit history.
 ```
 - Q4. What is the .git/ folder and what happens if you delete it?
+
 ```bash
 So when we initialize git with **git init** it create a .git folder.
 And it's basically our local git repo where it manages project history and configuration.
