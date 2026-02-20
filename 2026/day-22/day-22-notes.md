@@ -57,7 +57,7 @@ Done
 
 - Q1. What is the difference between git add and git commit?
 ```bash
-With git add we can add the files/dir from workarea to staging area and after then only we can commit it to local repo.
+With "git add" we can add the files/dir from workarea to staging area and after then only we can commit it to local repo.
 ```
 - Q2. What does the staging area do? Why doesn't Git just commit directly?
 ```bash
