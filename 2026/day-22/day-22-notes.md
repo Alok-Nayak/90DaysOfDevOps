@@ -38,7 +38,43 @@ git -v or git --version
     - Basic Workflow.  
     - Viweing Chnages.  
 
+### TASK-4 : Stage and Commit
+1. Stagged files with ` git add . `.
+2. Checked what is staged with ` git status `.
+3. Added a commit message ` docs: added devops-git-practice.md file `.
+4. Viwed commit history with ` git log --oneline `.
+![stage&commit]()
 
 
+### Task 5: Make More Changes and Build History
+Done and pushed.
 
-<F2>
+
+### Task 6: Understand the Git Workflow.  
+Done
+
+- Q1. What is the difference between git add and git commit?
+```bash
+With git add we can add the files/dir from workarea to staging area and after then only we can commit it to local repo.
+```
+- Q2. What does the staging area do? Why doesn't Git just commit directly?
+```bash
+The staging area gives us freedom to check the files we are going to commit, so any thing needs to change we can restore and make changes and then commit also we can add selective files to commit and finally push to repo.
+
+- Q3. What information does git log show you?
+```bash
+git log shows commit history.
+```
+- Q4. What is the .git/ folder and what happens if you delete it?
+```bash
+So when we initialize git with **git init** it create a .git folder.
+And it's basically our local git repo where it manages project history and configuration.
+```
+- Q5. What is the difference between a working directory, staging area, and repository?
+```bash
+After we initialize git it creates 3 workspace:
+Working Directory: This the space where we create/modify files. And whatever actions performed here(create/delete/modify) git keeps all record of it.
+Staging Area: This is where the files moves after we run "git add ." command, and then we can review the files and can modify them if needed before commiting.
+Repository: The files along with the rivision history stored in a space after commit and that space called repository.
+
+
