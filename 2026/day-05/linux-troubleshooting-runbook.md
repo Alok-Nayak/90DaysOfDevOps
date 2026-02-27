@@ -2,7 +2,7 @@
 
 ## Environment Basics
 - ` uname -a ` -Displaying the operating system name.
-- ` unmae -r ` -Only shows the kernel version.
+- ` uname -r ` -Only shows the kernel version.
 - ` cat /etc/os-release ` -To see linux OS info.
 - ` hostnamectl `  -Shows the OS, Kernel, and Architecture in one view.
 > These commands helps to check about the OS info and during incidents we can Know the distribution and kernel version and this tells me which set of commands and configuration paths I need to use.
@@ -20,7 +20,7 @@
 
 ## Service state
 
-- `systemctl status cron`   -Checking the status of corn service.
+- `systemctl status cron`   -Checking the status of cron service.
 - `systemctl is-enabled cron` -Checking if it's eneable to start on boot or after reboot.
 - `systemctl list-units | grep cron` -Cheking if it's loaded and in an active running state or not.
 
@@ -119,10 +119,11 @@
 ![Logs](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/logs.png)
 
 ## Quick Findings
-- System health is stable.
-- Cron service is running normally.
+- No immediate resource bottlenecks observed.
+- Target service (cron) healthy and active.
+- No error patterns in logs.
 - No CPU, memory, disk, or log anomalies detected.
 
 ## Resources
-- Man page, Google, Gemini, ChatGPT
+- Man page, Google, Documentation
 
