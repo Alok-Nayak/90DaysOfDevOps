@@ -10,7 +10,7 @@
 ![notes](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/ba790e04c0c52ccd30df1a7ec637acee63e884e4/2026/day-06/day-06-images/notes.png)
 
 Key Learning
-` > ` overwrites a file.
-` >> ` appends to a file.
-` tee -a ` writes and displays at the same time.
-` head ` and ` tail ` help inspect large files quickly.
+- ` > ` overwrites a file.  
+- ` >> ` appends to a file.  
+- ` tee -a ` writes and displays at the same time.  
+- ` head ` and ` tail ` help inspect large files quickly.  
