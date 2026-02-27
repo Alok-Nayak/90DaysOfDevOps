@@ -26,7 +26,7 @@ HEAD is a pointer that tells Git which branch and commit you are currently on.
 
 ## Task-2: Branching Commands — Hands-On
 
-In ![devops-git-practice](https://github.com/Alok-Nayak/devops-git-practice.git).
+In [devops-git-practice](https://github.com/Alok-Nayak/devops-git-practice.git).
 
 1. Listed all branches in the repo.
 2. Created a new branch called feature-1.
@@ -39,7 +39,7 @@ In ![devops-git-practice](https://github.com/Alok-Nayak/devops-git-practice.git)
 6. Commited feat `feat1.md` on `feature-1` it was not exist on main.
 7. Switched back to main — verified that the commit from feature-1 is not there
 8. Delete a branch you no longer need
-9. Added all branching commands to ![git-commands.md](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/9771d239cac1ad806143c6c81f35ac877f14d506/2026/day-22/devops-git-practice/git-commands.md)`
+9. Added all branching commands to [git-commands.md](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/9771d239cac1ad806143c6c81f35ac877f14d506/2026/day-22/devops-git-practice/git-commands.md)`
 
 ## Task 3: Push to GitHub
 
