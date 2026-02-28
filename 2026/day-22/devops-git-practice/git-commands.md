@@ -78,5 +78,4 @@ git stash list         # List all stashes
 - ` git clean -fd `         - Remove untracked files/folders.
 - ` git blame <file> `      - See who changed each line.
 
-## 
 
