@@ -52,7 +52,7 @@ git config --global --unset user.email
 - ` git branch -d <branch-name> `            - Delete local branch (safe)
 - ` git branch -D <branch-name> `            - Delete local branch (force)
 - ` git push origin --delete <branch-name> ` - Delete remote branch
-- ` git push <remote-name> :<branch-name>    - Delete remote branch
+- ` git push <remote-name> :<branch-name> `    - Delete remote branch
 
 ### New Commands
 
