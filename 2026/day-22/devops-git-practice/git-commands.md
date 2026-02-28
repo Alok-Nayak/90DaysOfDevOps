@@ -35,11 +35,9 @@ git config --global --unset user.email
 - ` git log --oneline `   - Oneline commit  history.
 - ` git diff `            - Show's unstaged changes(working vs staging).
 - ` git diff --staged `   - Shows staged changes(staging vs last commit).
-- ` git show <commitid> ` - Shows details of a specific commit.
+- ` git show <commitid> ` - Shows details of a specific commit.-
 
-#--------------------------------------------
-
-## Git Advance
+## Git Advance Commands
 
 ## Branching & Switching
 
@@ -77,5 +75,3 @@ git stash list         # List all stashes
 - ` git reflog `            - Show all HEAD movements.
 - ` git clean -fd `         - Remove untracked files/folders.
 - ` git blame <file> `      - See who changed each line.
-
-
