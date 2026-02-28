@@ -37,7 +37,7 @@ git config --global --unset user.email
 - ` git diff --staged `   - Shows staged changes(staging vs last commit).
 - ` git show <commitid> ` - Shows details of a specific commit.
 
---------------------------------------------
+#--------------------------------------------
 
 ## Git Advance
 
