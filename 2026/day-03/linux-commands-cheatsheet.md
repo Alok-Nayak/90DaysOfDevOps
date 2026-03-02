@@ -284,4 +284,27 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 3. Set Correct Permission "chmod 600 ~/.ssh/config".
 4. Use the shortcut "ssh prod"
 
-```                                                                                                                                                            
+```   
+
+
+---
+## User and Group Management
+### User
+- ` sudo useradd -m <name> ` - Add user and create home directory.  
+- ` sudo useradd <name> `    - Add only user.
+- ` sudo adduser <name> `    - Create user, prompts for a password, creates the home directory, and copies configuration files (like .bashrc) automatically.
+- ` sudo userdel <username>` - Delete the user only, keeping the home and other directory.
+- ` sudo userdel -r <username> ` - Delete user along with home directory and info.
+- ` sudo userdel -f <usernmae> ` - Delete user forcefully, evben the user is logged in.
+
+### Group
+- ` sudo groupadd <group name> `   - Create group.
+- ` sudo groupdel <group_name> `   - Delete group.
+- ` sudo usermod -aG <group name> <user name> ` - Adding user to a group.
+-   Group format:  **` group_name:password:GID:user_list `** = **` docker:x:984:alok-nayak `**
+- ` sudo gpasswd -d <username> <groupname> `  - Removing an user from a group.
+- ` sudo deluser <username> <groupname> `     - Remove asn user form a group(ubuntu/debian).
+- ` sudo usermod -aG <group1,group2> <username> ` - Adding an user to multiple groups.
+
+
+                                                                                              
