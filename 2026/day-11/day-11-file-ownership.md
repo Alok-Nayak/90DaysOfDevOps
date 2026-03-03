@@ -12,7 +12,7 @@ What's the difference between owner and group?
 > The Owner is the single individual (user) who has primary control over the file.
 > Group is a collection of multiple users who share the same access level.
 
-![task-1]()  
+![task-1](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-1.png)  
 
 ## Ownership Changes
 ### Task 2: Basic chown Operations (20 minutes)
@@ -22,7 +22,7 @@ What's the difference between owner and group?
 4. Change owner to berlin
 5. Verify the changes
 
-![task-2]()  
+![task-2](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-2.png)    
 
 ### Task 3: Basic chgrp Operations
 1. Create file `team-notes.txt`
@@ -31,7 +31,7 @@ What's the difference between owner and group?
 4. Change file group to `heist-team`
 5. Verify the change
 
-![task-3]()  
+![task-3](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-3.png)  
 
 ### Task 4: Combined Owner & Group Change  
 - Using chown you can change both owner and group together:
@@ -40,10 +40,11 @@ What's the difference between owner and group?
 3. Create directory `app-logs/`
 4. Change its owner to `berlin` and group to `heist-team`.
 
-![task-4]()  
+![task-4](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-4.png)  
 
 ### Task 5: Recursive Ownership  
-![task-5]()  
+![task-5](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-5.png)  
+![task-5-1](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-5-1.png)  
 
 ### Task 6: Practice Challenge
 - Create directory: bank-heist/
@@ -53,8 +54,8 @@ What's the difference between owner and group?
   - blueprints.pdf → owner: berlin, group: tech-team
   - escape-plan.txt → owner: nairobi, group: vault-team
 
-![task-6]()  
-!task-6]()  
+![task-6](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-6-1.png)  
+![task-6](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-6-2.png)  
 
 ## Commands Used
 
