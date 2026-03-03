@@ -303,7 +303,9 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` sudo gpasswd -d <username> <groupname> `  - Removing an user from a group.
 - ` sudo deluser <username> <groupname> `     - Remove asn user form a group(ubuntu/debian).
 - ` sudo usermod -aG <group1,group2> <username> ` - Adding an user to multiple groups.
-#
+-  
 - ` sudo chgrp <group name> <file name> `     - Changing a files group. 
+- ` sudo chown <owner>:<group> <filename> `   - Changing owner and group at the same time(Recursive change).
+
 
                                                                                               
