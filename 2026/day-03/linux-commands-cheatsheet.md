@@ -286,8 +286,6 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 
 ```   
 
-
----
 ## User and Group Management
 ### User
 - ` sudo useradd -m <name> ` - Add user and create home directory.  
