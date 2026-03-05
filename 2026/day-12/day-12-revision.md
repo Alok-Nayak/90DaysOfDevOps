@@ -41,9 +41,9 @@ Q. Which 3 commands save you the most time right now?
 
 Q.  How do you check if a service is healthy?
 
-`systemctl status <service>`  - Verify status of service
-`journalctl -u <service>`     - To check logs
-`ps aux | grep <service>`     - To see running process
+`systemctl status <service>`  - Verify status of service  
+`journalctl -u <service>`     - To check logs  
+`ps aux | grep <service>`     - To see running process  
 
 Q. How do you safely change ownership and permissions?
 
