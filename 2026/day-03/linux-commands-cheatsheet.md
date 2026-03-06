@@ -315,5 +315,11 @@ ex:` setfacl -m u:alok:rwx <myfile> `
 - ` sudo chgrp <group name> <file name> `     - Changing a files group. 
 - ` sudo chown <owner>:<group> <filename> `   - Changing owner and group at the same time(Recursive change).
 
+### Transfer file to/from Linux Machine
+- `scp <name_of_local_file> <username@IP_OF_SERVER:/path/to/remote/directory/>` - To copy a file FROM your own computer TO a remote Linux machine.
+
+#
+#
+
 
                                                                                               
