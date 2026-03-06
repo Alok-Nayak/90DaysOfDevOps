@@ -118,6 +118,13 @@
     - No repeated failures or permission issues detected.
 ![Logs](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6577116e089984ea1afac6cff86ffcc6b7fee6b2/2026/day-05/day-05-images/logs.png)
 
+**Ways to find conf/log/other files of a service**
+```bash 
+1. systemctl status service
+2. ps aux | grep service
+3. sudo lsof -p <PID>
+4. check /etc/service
+```
 ## Quick Findings
 - No immediate resource bottlenecks observed.
 - Target service (cron) healthy and active.
