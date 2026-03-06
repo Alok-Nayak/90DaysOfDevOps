@@ -80,6 +80,14 @@ rt_sigsuspend,The process is waiting for a signal to wake up.
 
 ![lsof](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f2eca681763d6f3d8dea1d3ea385231180b02d37/2026/day-03/linux-command-images/lsof%20-p%20pid.png)
 
+**Steps to check files of any service**
+```bash
+1. systemctl status service
+2. ps aux | grep service
+3. sudo lsof -p <PID>
+4. check /etc/service
+```
+
 ## File System (Navigation, Disk, Permissions, Search, Cleanup)
 
 - ` touch <file-name> ` - Creates a file.
