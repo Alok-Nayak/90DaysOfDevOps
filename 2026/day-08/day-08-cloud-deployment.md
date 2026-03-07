@@ -76,7 +76,7 @@
 - `ssh -i <keyfile.pem> <username>@<ip-address>`
 - `ps aux  | grep <service name>`
 - `sudo lsof -p <PID>`
-- `tail -f </path/to/logfile.log>
+- `tail -f </path/to/logfile.log>`
 - `cat <filename>`
 - `systemctl status <service name> `
 - `journalctl -u <service name>`
