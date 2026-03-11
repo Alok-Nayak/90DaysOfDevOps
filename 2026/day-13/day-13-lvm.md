@@ -7,9 +7,13 @@
 ## Task 2: Create Physical Volume
 
 ### Create a Virtual Disk File
-    - `dd if=/dev/zero of=/tmp/disk1.img bs=1M count=1024`
+```command
+dd if=/dev/zero of=/tmp/disk1.img bs=1M count=1024
+```
 ### Attach the virtual disk file with a loop device
-    - `losetup -fP /tmp/disk1.img`
+```command
+losetup -fP /tmp/disk1.img
+```
 ![attach the virtuals disk file with loop device](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6cc7d8c78557d173d18663416ec06f5bbf055e4b/2026/day-13/day-13-lvm-snapshots/day-13-2-disk-img-loop-device-attach.png)    
 
 ![check](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6cc7d8c78557d173d18663416ec06f5bbf055e4b/2026/day-13/day-13-lvm-snapshots/day-13-2-a-checking-loop-device.png)    
