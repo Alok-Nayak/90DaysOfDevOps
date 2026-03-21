@@ -8,11 +8,10 @@ OSI and TCP/IP are both logical models. They both describe how information is tr
 - TCP/IP: practical real world networking.
 
 ### OSI : Open Systems Interconnection
-
-    - The OSI model is a conceptual framework that divides network communications functions into seven layers.
-    - The OSI data model provides a universal language for computer networking, so diverse technologies can communicate using standard protocols or rules of communication.
-    - It is a 7-layer conceptual framework used to understand and design network communication. 
-    - Each layer has a clearly defined function and works independently of the others.
+ - The OSI model is a conceptual framework that divides network communications functions into seven layers.
+ - The OSI data model provides a universal language for computer networking, so diverse technologies can communicate using standard protocols or rules of communication.
+ - It is a 7-layer conceptual framework used to understand and design network communication. 
+ - Each layer has a clearly defined function and works independently of the others.
 
 1. Layer 7: Application Layer 
 2. Layer 6: Presentation Layer 
