@@ -1,4 +1,4 @@
-# LVM
+# LVM - Linux Volume Management
 
 ## Task 1: Check Cuyrrent Storage
 ![check current storage](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/6cc7d8c78557d173d18663416ec06f5bbf055e4b/2026/day-13/day-13-lvm-snapshots/day-13-1-check-current-storage.png)    
