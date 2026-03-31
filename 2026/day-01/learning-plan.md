@@ -49,5 +49,5 @@ My main goals are:
 ## How I will stay consistent every single day 
 I will study for minimum 3 hours on weekdays and 4 to 6 hours on weekends and post my learning on linkdin and commit my work on github.
 
-
+## dt: 31-MAR-2k26 :::Note to Self: "Rest, Restart, Refocous".
 
