@@ -3,10 +3,10 @@
 ## File Permissions & File Operations
 
 ### Task 1: Create Files.
-1. Create empty file devops.txt using touch
+1.  Create empty file devops.txt using touch
 2.  Create notes.txt with some content using cat or echo
 3.  Create script.sh using vim with content: echo "Hello DevOps"
-4. Verify: ls -l to see permissions
+4.  Verify: ls -l to see permissions
 
 ![task-1](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0d2f9f3c7b32e2e2198140be7da9d8d7e95859ea/2026/day-10/day-10-snapshoots/day-10-task-1.png)  
 
