@@ -31,6 +31,7 @@ What's the difference between owner and group?
 4. Change file group to `heist-team`
 5. Verify the change
 
+
 ![task-3](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-3.png)  
 
 ### Task 4: Combined Owner & Group Change  
@@ -58,6 +59,7 @@ What's the difference between owner and group?
 ![task-6](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/0189722d74e64752f875faaacb05510b4c8d0682/2026/day-11/day-11-snapshots/day-11-task-6-2.png)  
 
 ## Commands Used
+
 
 - `mkdir -p heist-project/vault`
 - `touch heist-project/vault/gold.txt`
