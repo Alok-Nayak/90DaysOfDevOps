@@ -7,7 +7,6 @@ Figure out how to:
 - Create users and set passwords
 - Create groups and assign users
 - Set up shared directories with group permissions
-
 Use what you learned from Days 1-7 to find the right commands!
 
 ---
