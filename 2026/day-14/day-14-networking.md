@@ -108,3 +108,4 @@ Check iptables: ` sudo iptables -L -n `
 - Identify crashes or config issues   ` journalctl -u nginx `
 - Verify application response using `curl -I http://localhost`
 
+
