@@ -68,7 +68,6 @@ These are the private ip's of my system::
 ![ip-addr-show]()
 
 ## Task 3: CIDR & Subnetting
-
 1. What does /24 mean in 192.168.1.0/24?
 Ans:->
 - /24 is the subnet mask for the ip address.
