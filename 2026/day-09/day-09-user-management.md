@@ -17,9 +17,10 @@
 - /opt/dev-project (775, group: developers)
 - /opt/team-workspace (775, group: project-team)
 ![Task-4](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/2f51881b13d27373382f586a569e5d341b4a6b84/2026/day-09/day-09-snapshots/day-09-task-4.png)    
-![task-5](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/2f51881b13d27373382f586a569e5d341b4a6b84/2026/day-09/day-09-snapshots/day-09-task-5.png)      
+![task-5](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/2f51881b13d27373382f586a569e5d341b4a6b84/2026/day-09/day-09-snapshots/day-09-task-5.png) 
+     
 
-## Commands Used
+## The Commands Used
 useradd, passwd, groupadd, usermod, chgrp, chmod, groups, ls
 
 ## What I Learned
