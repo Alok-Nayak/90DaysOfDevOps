@@ -39,7 +39,7 @@ Take a **one-day pause** to consolidate everything from Days 01–11 so you don�
 ## Learn in Public
 Post 2–3 lines on what you reinforced today and one command you now remember confidently.
 
-Use hashtags:  
+### Use hashtags:  
 #90DaysOfDevOps  
 #DevOpsKaJosh  
 #TrainWithShubham
