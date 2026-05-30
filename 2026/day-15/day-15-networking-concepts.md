@@ -21,7 +21,7 @@ Ans:-->
 dig google.com
 ```
 
-![dig google.com]()
+![dig google.com](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/2f99011bf15c2bd12800262c9324f214a2026964/2026/day-15/day-15-screenshot/dig-google_1_1.png)
 
 A Record IP: 192.178.211.101
 TTL: 202 seconds
@@ -63,7 +63,7 @@ These are the private ip's of my system::
 - 172.17.0.1 --> Private IP used by Docker bridge network
 - 127.0.0.1 --> Loopback IP (localhost)
 
-![ip-addr-show]()
+![ip-addr-show](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/2f99011bf15c2bd12800262c9324f214a2026964/2026/day-15/day-15-screenshot/ip_addr_show_private_ip_2.png)
 
 ## Task 3: CIDR & Subnetting
 ### 1. What does /24 mean in 192.168.1.0/24?
@@ -117,7 +117,7 @@ From my `ss -tulpn` output, I found:
 - `127.0.0.54:53` --> DNS resolver service (`systemd-resolve`)
 - `127.0.0.1:631` --> Printing service / CUPS (`cupsd`)
 
-![ss -tulpn]()
+![ss -tulpn](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/2f99011bf15c2bd12800262c9324f214a2026964/2026/day-15/day-15-screenshot/ss%20%20-tlupn.png)
 
 ## Task 5: Putting It Together (Answer in 2–3 lines each:)
 ### 1. You run `curl http://myapp.com:8080` — what networking concepts from today are involved?
