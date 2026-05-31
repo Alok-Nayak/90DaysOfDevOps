@@ -1,6 +1,6 @@
-## Task 1: Your First Script`
+## Task 1: Your First Script
 
-![hello.sh]()
+![hello.sh](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/hello.sh.png)
 
 **What happens if you remove the shebang line?**
 
@@ -8,6 +8,7 @@
 - When we try to run the script, the OS looks for the shebang line. Finding none, it refuses to run the file and passes the error to our terminal shell.
 - The shell assumes the text file contains standard shell commands. It reads the file line-by-line and executes it inside current shell environment.
 - The script worked because 'echo' is a valid command in almost every shell, so it just got executed.
+
 ---
 
 
@@ -16,13 +17,13 @@
 ### using single quotes vs double quotes 
 
 - **Double Quotes (" ") Enable Variable Expansion:** The shell looks inside the quotes, finds the variables prefixed with $, and replaces them with their actual values.
-- echo "I am $ROLE" prints: I am DevOps Engineer
+   - echo "I am $ROLE" prints: I am DevOps Engineer
 
 - **Single Quotes (' ') Disable Variable Expansion:** The shell treats everything inside literal text. It ignores the $ symbol completely.
-- echo 'I am $ROLE' prints: I am $ROLE
+    - echo 'I am $ROLE' prints: I am $ROLE
 
-![variable.sh-1]()
-![variable.sh-2]()
+![variable.sh-1](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/variable.sh-1.png)
+![variable.sh-2](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/variable.sh-2.png)
 
 ---
 
@@ -32,7 +33,7 @@
    - Asks for their favourite tool
    - Prints: `Hello <name>, your favourite tool is <tool>`
 
-![greet.sh]()
+![greet.sh](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/greet.sh.png)
 
 ---
 
@@ -41,16 +42,16 @@
    - Takes a number using `read`
    - Prints whether it is **positive**, **negative**, or **zero**
 
-![check_number.sh-1]()
-![check_number.sh-2]()
+![check_number.sh-1](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/check_number.sh-1.png)
+![check_number.sh-2](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/check_number.sh-2.png)
 
 2. Create `file_check.sh` that:
    - Asks for a filename
    - Checks if the file **exists** using `-f`
    - Prints appropriate message
 
-![file_check.sh-1]()
-![file_check.sh-2]()
+![file_check.sh-1](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/file_check.sh-1.png)
+![file_check.sh-2](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/file_check.sh-2.png)
 
 ---
 
@@ -61,7 +62,8 @@ Create `server_check.sh` that:
 3. If `y` — runs `systemctl status <service>` and prints whether it's **active** or **not**
 4. If `n` — prints "Skipped."
 
-![service_check.sh]() 
+![service_check.sh](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/4cb6211b0e453b4eb160f108acb80b7667664ce1/2026/day-16/day-16-snapshots/service_check.sh.png)  
+
 ---
 
 
