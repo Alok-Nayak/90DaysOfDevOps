@@ -1,5 +1,6 @@
 # Day 17 – Shell Scripting: Loops, Arguments & Error Handling
 
+
 ## Task
 Level up your scripting — use loops, handle arguments, and deal with errors.
 
