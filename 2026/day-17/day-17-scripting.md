@@ -109,6 +109,7 @@ Usage: ./greet.sh <name>
    - Prints total number of arguments (`$#`)
    - Prints all arguments (`$@`)
    - Prints the script name (`$0`)
+
 **Answer**
 ```
 #!/bin/bash
@@ -128,5 +129,67 @@ The script name: ./args_demo.sh
 ```
 
 
+---
+
+### Task 4: Install Packages via Script
+1. Create `install_packages.sh` that:
+   - Defines a list of packages: `nginx`, `curl`, `wget`
+   - Loops through the list
+   - Checks if each package is installed (use `dpkg -s` or `rpm -q`)
+   - Installs it if missing, skips if already present
+   - Prints status for each package
+
+**Answer**
+
+```
+#!/bin/bash
+
+read -p "Enter the PackageName You Want To Install: " package
+
+if [ "$package" == "" ]; then
+        echo "Please Enter The Package Name !!"
+elif command -v "$package" > /dev/null 2>&1; then
+        echo "$package is already installed!"
+else
+        echo "Installing $package ..."
+        echo "Updating Package list..."
+        sudo apt-get update > /dev/null 2>&1
+        sudo apt-get install "$package" -y > /dev/null 2>&1
+
+        echo "Checking if it's installed..."
+        if command -v "$package" > /dev/null 2>&1; then
+            echo "Success: $package is now installed!"
+        else
+            echo "Error: Failed to install $package."
+        fi
+fi
+
+```
+
+**Output**
+Enter the PackageName You Want To Install: nginx
+Installing nginx ...
+Updating Package list...
+[sudo] password for alok-nayak: 
+Checking if it's installed...
+Success: nginx is now installed!
+
+```
+
+---
+
+### Task 5: Error Handling
+
+1. Create `safe_script.sh` that:
+   - Uses `set -e` at the top (exit on error)
+   - Tries to create a directory `/tmp/devops-test`
+   - Tries to navigate into it
+   - Creates a file inside
+   - Uses `||` operator to print an error if any step fails
+
+Example:
+```bash
+mkdir /tmp/devops-test || echo "Directory already exists"
+```
 
 
