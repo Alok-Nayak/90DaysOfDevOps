@@ -188,7 +188,46 @@ Success: nginx is now installed!
 
 Example:
 ```bash
-mkdir /tmp/devops-test || echo "Directory already exists"
+#!/bin/bash
+
+set -e
+
+mkdir /tmp/devops-test > /dev/null 2>&1 || echo "Directory already exists"
+cd /tmp/devops-test
+
 ```
 
+2. Modify your `install_packages.sh` to check if the script is being run as root — exit with a message if not.
 
+```bash
+
+#!/bin/bash
+
+read -p "Enter the PackageName You Want To Install: " package
+
+if [ $(id -u) -ne 0 ]; then
+        echo "Hey, you are not root... stopping execution. :( SORRY !!!"
+	exit 1
+fi
+
+if [ "$package" == "" ]; then
+        echo "Please Enter The Package Name !!"
+elif command -v "$package" > /dev/null 2>&1; then
+        echo "$package is already installed!"
+else
+        echo "Installing $package ..."
+        echo "Updating Package list..."
+        sudo apt-get update > /dev/null 2>&1
+        sudo apt-get install "$package" -y > /dev/null 2>&1
+        
+        echo "Checking if it's installed..."
+        if command -v "$package" > /dev/null 2>&1; then
+            echo "Success: $package is now installed!"
+        else
+            echo "Error: Failed to install $package."
+        fi
+fi
+
+
+
+```

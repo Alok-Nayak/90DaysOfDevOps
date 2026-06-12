@@ -1,0 +1,1 @@
+- We can use a function in any script file that has been defined in a separate script file by importing them in the script.
