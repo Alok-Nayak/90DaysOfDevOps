@@ -225,8 +225,14 @@ main() {
 main
 
 ```
+---
 
+## Key Take Away:
 
+- Call the function first: Variables inside a function don’t exist in memory until that function actually runs.
 
+- Use local to stop leaks: Variables inside a function automatically become global and spill out unless you explicitly add local before them.
+
+- Strict mode blocks hidden errors: `set -euo pipefail` crashes the script immediately if a command fails or a variable is empty, preventing silent bugs.
 
 ---
