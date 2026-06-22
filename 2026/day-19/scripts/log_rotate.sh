@@ -2,6 +2,11 @@
 
 set -euo pipefail
 
+if [ $# -eq 0 ]; then
+	echo "Please provide log directory e.g. log_rotate.sh <path/to/log/dir>"
+	exit 1 
+fi
+
 echo ""
 echo "*********** Starting Log Rotation ***********"
 
