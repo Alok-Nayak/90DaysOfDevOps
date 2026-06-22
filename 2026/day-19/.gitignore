@@ -1,0 +1,3 @@
+scripts/test_logs/logs/*
+*.tar.gz
+*.txt
