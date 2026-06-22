@@ -11,7 +11,7 @@ file_count=$(find "$LOG_DIR" -type f | wc -l)
 if [ $file_count -eq 0 ]; then
 	echo "Directory '$LOG_DIR' is empty or newly created. Populating with test logs..."
 
-	for i in {0..40}; do
+	for i in {0..10}; do
 		DATE_STR=$(date -d "$i days ago" +"%Y-%m-%d")
 
 		if [ $i -le 7 ]; then
