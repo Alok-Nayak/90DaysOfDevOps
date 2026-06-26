@@ -55,7 +55,7 @@ echo "" >> "$REPORT_FILE"
 
 echo "--- Critical Events with Line Numbers ---" >> "$REPORT_FILE"
 echo "" >> "$REPORT_FILE"
-grep -in "CRITICAL" "$LOG_FILE" >> "$REPORT_FILE"
+grep -in "CRITICAL" "$LOG_FILE" | tail -15 >> "$REPORT_FILE"
 echo "" >> "$REPORT_FILE"
 
 echo "Report saved successfully!"
