@@ -1,20 +1,19 @@
 #!/bin/bash
-#
 
 set -euo pipefail
 
 date=$(date +%Y-%m-%d)
-echo $date
 
 # Task 1: Input and Validation
+if [ $# -eq 0 ]; then
+        echo "Please provide the log file path as argument. e.g.: log_analyzer.sh  <path/to/log/file>"
+        exit 1
+fi
 
 LOG_FILE=$1
 LOG_LABEL=${2:-ERROR}
 
-if [ $# -eq 0 ]; then
-        echo "Please provide the log file path as argument. e.g.: log_analyzer.sh  <path/to/log/file>"
-        exit 1
-elif [ ! -f "$LOG_FILE" ]; then
+if [ ! -f "$LOG_FILE" ]; then
         echo "The '$LOG_FILE' file does not exist.. Please ReCheck!!!"
         exit 1
 fi
@@ -36,52 +35,63 @@ grep "\[$LOG_LABEL\]" "$LOG_FILE" | cut -d']' -f2 | cut -d'-' -f1 | sort | uniq 
 echo " "
 
 # Task 5: Summary Report
-#
+
 REPORT_FILE="log_report_${date}.txt"
+REPORT_DIR="reports"
+
+if [ -d "$REPORT_DIR" ]; then
+	echo ""
+	echo " The $REPORT_DIR directory exists."
+else
+	echo " The '$REPORT_DIR' directory does not exist."
+	mkdir -p "$REPORT_DIR"
+	echo " The '$REPORT_DIR' dir created successfully."
+	echo ""
+fi
 
 echo "Generating report: $REPORT_FILE..."
 
-echo "" > "$REPORT_FILE"
-echo "--- Log Analysis Summary Report ---" >> "$REPORT_FILE"
-echo "" >>"$REPORT_FILE"
-echo "Date of analysis: $date" >> "$REPORT_FILE"
-echo "Log file name: $LOG_FILE" >> "$REPORT_FILE"
-echo "Total lines processed: $(wc -l < "$LOG_FILE")" >> "$REPORT_FILE"
+echo "" > "$REPORT_DIR/$REPORT_FILE"
+echo "--- Log Analysis Summary Report ---" >> "$REPORT_DIR/$REPORT_FILE"
+echo "" >>"$REPORT_DIR/$REPORT_FILE"
+echo "Date of analysis: $date" >> "$REPORT_DIR/$REPORT_FILE"
+echo "Log file name: $LOG_FILE" >> "$REPORT_DIR/$REPORT_FILE"
+echo "Total lines processed: $(wc -l < "$LOG_FILE")" >> "$REPORT_DIR/$REPORT_FILE"
 
-echo "Total error count: $(grep -ic "ERROR" "$LOG_FILE")" >> "$REPORT_FILE"
-echo "" >> "$REPORT_FILE"
+echo "Total error count: $(grep -ic "ERROR" "$LOG_FILE")" >> "$REPORT_DIR/$REPORT_FILE"
+echo "" >> "$REPORT_DIR/$REPORT_FILE"
 
-echo "--- Top 5 $LOG_LABEL Messages ---" >> "$REPORT_FILE"
-echo "" >> "$REPORT_FILE"
-grep "\[$LOG_LABEL\]" "$LOG_FILE" | cut -d']' -f2 | cut -d'-' -f1 | sort | uniq -c | sort -rn | head -5 >> "$REPORT_FILE"
-echo "" >> "$REPORT_FILE"
+echo "--- Top 5 $LOG_LABEL Messages ---" >> "$REPORT_DIR/$REPORT_FILE"
+echo "" >> "$REPORT_DIR/$REPORT_FILE"
+grep "\[$LOG_LABEL\]" "$LOG_FILE" | cut -d']' -f2 | cut -d'-' -f1 | sort | uniq -c | sort -rn | head -5 >> "$REPORT_DIR/$REPORT_FILE"
+echo "" >> "$REPORT_DIR/$REPORT_FILE"
 
-echo "--- Critical Events with Line Numbers ---" >> "$REPORT_FILE"
-echo "" >> "$REPORT_FILE"
-grep -in "CRITICAL" "$LOG_FILE" | tail -15 >> "$REPORT_FILE"
-echo "" >> "$REPORT_FILE"
+echo "--- Critical Events with Line Numbers ---" >> "$REPORT_DIR/$REPORT_FILE"
+echo "" >> "$REPORT_DIR/$REPORT_FILE"
+grep -in "CRITICAL" "$LOG_FILE" | tail -15 >> "$REPORT_DIR/$REPORT_FILE"
+echo "" >> "$REPORT_DIR/$REPORT_FILE"
 
 echo "Report saved successfully!"
 
 
 
 # Task 6: Archive Processed Logs
-# 
+ 
 ARCHIVE_DIR="archive"
-#
-#
+
 if [ -d "$ARCHIVE_DIR" ]; then
-    echo "$ARCHIVE_DIR Directory exists."
+	echo ""
+	echo "The $ARCHIVE_DIR directory exists."
 else
-    echo " '$ARCHIVE_DIR' Directory does not exist."
-    mkdir -p "$ARCHIVE_DIR"
-    echo " '$ARCHIVE_DIR' Dir created successfully."
+	echo " '$ARCHIVE_DIR' directory does not exist."
+	mkdir -p "$ARCHIVE_DIR"
+	echo " The '$ARCHIVE_DIR' dir created successfully."
 fi
 
 
 if mv "$LOG_FILE" "$ARCHIVE_DIR"; then
-    echo "Success: '$LOG_FILE' has been moved to '$ARCHIVE_DIR'"
+	echo "Success: '$LOG_FILE' has been moved to '$ARCHIVE_DIR'"
 else
-    echo "Error: Failed to move log file to archive directory."
+	echo "Error: Failed to move log file to archive directory."
 fi
 
