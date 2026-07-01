@@ -112,4 +112,124 @@ fi
 
 6. Case statements — `case ... esac`
 
+- Case statement is like synonyms of if & else if statement.
+
+```bash
+
+case "$1" in
+    start)   echo "Starting service..." ;;
+    stop)    echo "Stopping service..." ;;
+    restart) echo "Restarting..." ;;
+    *)       echo "Usage: $0 {start|stop|restart}" ;;
+esac
+
+```
 ---
+
+### Task 3: Loops
+
+1. `for` loop — list-based and C-style
+
+-  **List-based loop
+
+```bash
+
+for ENV in dev stage prod; do
+    echo "Env: $ENV"
+done
+
+```
+- **C-style loop
+```bash
+
+for ((i=1; i<=5; i++)); do
+    echo "Index: $i"
+done
+
+```
+
+2. `while` loop
+
+ - Runs as long as the condition evaluates to true.
+
+```bash
+
+COUNT=1
+while [ $COUNT -le 3 ]; do
+    echo "Count: $COUNT"
+    ((COUNT++))
+done
+
+```
+3. `until` loop
+ - Runs as long as the condition evaluates to false (stops when true).
+```bash
+COUNT=1
+until [ $COUNT -gt 3 ]; do
+    echo "Count: $COUNT"
+    ((COUNT++))
+done
+```
+4. Loop control — `break`, `continue`
+- **Break**: Stop the loop entirely right now and don't process anything else.
+```bash
+for num in 1 2 3; do
+    if [ "$num" -eq 2 ]; then
+        break     # Stop completely at 2
+    fi
+    echo "$num"
+done
+```
+- **Continue** : Skip the rest of this specific round and move to the next item.
+```bash
+for num in 1 2 3; do
+    if [ "$num" -eq 2 ]; then
+        continue  # Skip number 2
+    fi
+    echo "$num"
+done
+```
+
+5. Looping over files — `for file in *.log`
+
+- Here this checks cur rent directory and chek for any file end with `.log` and print the name.
+
+```bash
+
+for LOG in *.log; do
+    [ -f "$LOG" ] || continue # Handle empty matches gracefully
+    echo "Processing $LOG"
+done
+
+```
+6. Looping over command output — `while read line`
+
+```bash
+
+df -h | while read -r LINE; do
+    echo "Disk line: $LINE"
+done
+
+```
+---
+
+### Task 4: Functions
+
+1. Defining a function — `function_name() { ... }`
+
+```bash
+
+name=${1:- "<Your Name>"}
+
+myfunction(){
+        echo "Hello, Have a Great Time $name"
+}
+
+myfunction
+```
+
+2. Calling a function
+3. Passing arguments to functions — `$1`, `$2` inside functions
+4. Return values — `return` vs `echo`
+5. Local variables — `local`
+
