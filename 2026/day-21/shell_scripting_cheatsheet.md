@@ -216,6 +216,7 @@ done
 ### Task 4: Functions
 
 1. Defining a function — `function_name() { ... }`
+2. Calling a function
 
 ```bash
 
@@ -225,11 +226,167 @@ myfunction(){
         echo "Hello, Have a Great Time $name"
 }
 
+myfunction alok
+
+```
+3. Passing arguments to functions — `$1`, `$2` inside functions
+
+```bash
+#!/bin/bash
+
+name=${1:- "<Your Name>"}
+
+second_args=${2:-  "<You haven't provided any second argument>"}
+
+myfunction(){
+        echo "Hello $name"
+        echo "Your second argument is : $second_args"
+}
+
 myfunction
+
 ```
 
-2. Calling a function
-3. Passing arguments to functions — `$1`, `$2` inside functions
 4. Return values — `return` vs `echo`
+- return sends an exit status code, while echo outputs actual data string payload.
+```bash
+check_status() {
+    return 1 # Fails status
+}
+
+check_status
+echo "Function exited with code: $?"
+```
+
 5. Local variables — `local`
+- **Global Variable :** Accessible anywhere in the script. Created by default.
+- **Local Variable :** Accessible only inside the function where it is made. It disappears when the function ends.
+
+```bash
+test_variables() {
+    local my_local="I am local"
+    my_global="I am global"
+}
+
+test_variables
+
+echo "Local variable: $my_local"
+echo "Global variable: $my_global"
+
+```
+---
+
+### Task 5: Text Processing Commands
+
+1. `grep` — search patterns, `-i`, `-r`, `-c`, `-n`, `-v`, `-E`
+
+- grep "error" app.log          # Search pattern
+- grep -i "error" app.log       # Case-insensitive
+- grep -r "CONN_REFUSED" /var/  # Recursive directory search
+- grep -c "WARN" app.log        # Count lines matching pattern
+- grep -n "FATAL" app.log       # Print line number with match
+- grep -v "DEBUG" app.log       # Invert match (exclude DEBUG)
+- grep -E "err|fail" app.log    # Extended regex (OR match)
+
+2. `awk` — print columns, field separator, patterns, `BEGIN/END`
+
+- grep "error" app.log          # Search pattern
+- grep -i "error" app.log       # Case-insensitive
+- grep -r "CONN_REFUSED" /var/  # Recursive directory search
+- grep -c "WARN" app.log        # Count lines matching pattern
+- grep -n "FATAL" app.log       # Print line number with match
+- grep -v "DEBUG" app.log       # Invert match (exclude DEBUG)
+- grep -E "err|fail" app.log    # Extended regex (OR match)
+
+3. `sed` — substitution, delete lines, in-place edit
+
+- grep "error" app.log          # Search pattern
+- grep -i "error" app.log       # Case-insensitive
+- grep -r "CONN_REFUSED" /var/  # Recursive directory search
+- grep -c "WARN" app.log        # Count lines matching pattern
+- grep -n "FATAL" app.log       # Print line number with match
+- grep -v "DEBUG" app.log       # Invert match (exclude DEBUG)
+- grep -E "err|fail" app.log    # Extended regex (OR match)
+
+4. `cut` — extract columns by delimiter
+
+```bash
+
+-d: Delimiter (the separator character). Must be a single character.
+-f: Field/Column number (starts at 1).
+-c: Character position.
+- (Hyphen): sSpecifies a range (e.g., 1-3 or 3-).
+, (Comma): Specifies a list (e.g., 1,4).
+
+```
+**Answer**
+
+- cut -d'-' -f1 data.txt                 # Extract column 1 using '-' delimiter(f1 means field/coloumn number)
+
+- echo "A,B,C,D" | cut -d',' -f2 --complement # `--complement` to extract everything except the fields you specify.
+    - Output: A,C,D 
+- echo "2026-07-03" | cut -c1-4   # Extract characters 1 through 10
+    - Output: 2026 (Extracts the year)
+
+5. `sort` — alphabetical, numerical, reverse, unique
+6. `uniq` — deduplicate, count
+
+- sort names.txt                         # Alphabetical sort
+- sort -n numbers.txt                    # Numerical sort
+- sort -r file.txt                       # Reverse sort
+- sort file.txt | uniq                   # Deduplicate adjacent matching lines
+- sort file.txt | uniq -c                # Deduplicate and count occurrences
+
+7. `tr` — translate/delete characters
+
+- echo "hello" | tr 'a-z' 'A-Z'          # Convert to uppercase
+- echo "devops123" | tr -d '0-9'         # Delete all numeric characters
+
+8. `wc` — line/word/char count
+
+- wc -l app.log                          # Count lines
+- wc -w app.log                          # Count words
+- wc -m app.log                          # Count only characters 
+
+9. `head` / `tail` — first/last N lines, follow mode
+
+- head -n 15 app.log                     # Output first 15 lines
+- tail -n 20 app.log                     # Output last 20 lines
+- tail -f app.log                        # Stream log updates in real-time (follow mode)
+
+---
+### Task 6: Useful Patterns and One-Liners
+Include at least 5 real-world one-liners you find useful. 
+Examples:
+- Find and delete files older than N days
+    - `find /path/to/logs -type f -mtime +30 -delete`   # Finds files in a specific path modified more than 30 days ago and deletes them.
+
+- Count lines in all `.log` files
+    - `wc -l *.log`                                     # Count lines in all .log files
+- Replace a string across multiple files
+    - `sed -i 's/localhost/124.0.0.1/g' *.conf`         # Uses sed to find the word "localhost" and replace it with "124.0.0.1" inside all .conf files, editing them in place (-i).
+
+- Check if a service is running
+    - `systemctl is-active --quiet nginx && echo "Running" || echo "Stopped"`
+    - `systemctl status nginx`
+
+- Monitor disk usage with alerts
+    -  df -h / 
+    - if [ "$(df -H / | awk 'NR==2 {print $5}' | cut -d% -f1)" -gt 90 ]; then echo "ALERT: Disk usage is high!"; else echo "Disk is fine."; fi
+
+- Parse CSV or JSON from command line
+    - 
+- Tail a log and filter for errors in real time
+    - `grep failure linux-logfile.log | tail -5`
+
+---
+
+### Task 7: Error Handling and Debugging
+
+1. Exit codes — `$?`, `exit 0`, `exit 1`
+2. `set -e` — exit on error
+3. `set -u` — treat unset variables as error
+4. `set -o pipefail` — catch errors in pipes
+5. `set -x` — debug mode (trace execution)
+6. Trap — `trap 'cleanup' EXIT`
 
