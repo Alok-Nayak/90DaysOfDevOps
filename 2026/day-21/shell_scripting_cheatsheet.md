@@ -384,7 +384,33 @@ Examples:
 ### Task 7: Error Handling and Debugging
 
 1. Exit codes — `$?`, `exit 0`, `exit 1`
+- Every command returns an exit status between 0 and 255. A 0 indicates success, while any non-zero value indicates an error.
+    - `$?` : stores the exit code of the last executed command.
+    - `exit 0` : A 0 indicates success.
+    - `exit 1` : It immediately terminates the execution of a script and returns a general error status code of 1.
+
+```bash
+
+TARGET_FILE="/etc/nginx_config.conf"
+
+cat "$TARGET_FILE" 2>/dev/null
+
+STATUS=$?
+
+if [ $STATUS -eq 0 ]; then
+    echo "Success! File read successfully."
+    exit 0
+else
+    echo "Error! Command failed with exit code: $STATUS"
+    exit 1
+fi
+
+```
+ 
 2. `set -e` — exit on error
+- It terminates the script if any command returns nonzero exit status.
+
+
 3. `set -u` — treat unset variables as error
 4. `set -o pipefail` — catch errors in pipes
 5. `set -x` — debug mode (trace execution)
