@@ -29,7 +29,9 @@
 3. **Comments — single line (`#`) and inline**
 
     - Used to document scripts. Single-line comments start with #.
-    - # This is a dedicated single-line comment
+    ```bash
+# This is a dedicated single-line comment
+    ```
     - echo "Hello World" # This is an inline comment
 
 4. **Variables — declaring, using, and quoting (`$VAR`, `"$VAR"`, `'$VAR'`)**
