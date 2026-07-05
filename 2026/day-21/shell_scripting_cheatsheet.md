@@ -37,21 +37,21 @@
     - No spaces around the = sign during variable assignment. 
     - Always double-quote variables when expanding to prevent word splitting and globbing.
 
-**```bash
+```bash
 NAME="Alok"   # Declare variable
 echo $NAME        # Basic usage
 echo "$NAME"      # Correct: Double quotes allow variable expansion
 echo '$NAME'      # Literal: Single quotes prevent expansion (outputs: $NAME)
 ```
-5. Reading user input — `read`
+5. **Reading user input — `read`**
 
-- `read -p "Hey what's your name?" NAME` (Input: Alok)
-- Captures interactive keyboard entry from the user.
-- echo $NAME (Output: Alok )
+    - `read -p "Hey what's your name?" NAME` (Input: Alok)
+    - Captures interactive keyboard entry from the user.
+    - echo $NAME (Output: Alok )
 
-6. Command-line arguments — `$0`, `$1`, `$#`, `$@`, `$?`
-- Positional parameters passed to the script at runtime.
-- ```bash
+6. **Command-line arguments — `$0`, `$1`, `$#`, `$@`, `$?`**
+    - Positional parameters passed to the script at runtime.
+```bash
 echo "Script name: $0"
 echo "First argument: $1"
 echo "Total arguments count: $#"
@@ -65,19 +65,19 @@ echo "Exit status of last command: $?"
 
 1. **String comparisons — `=`, `!=`, `-z`, `-n`**
 
-    - [ "$A" = "$B" ]   # True if A & B  strings are equal
-    - [ "$A" != "$B" ]  # True if strings are not equal
-    - [ -z "$A" ]       # True if string is empty/null
-    - [ -n "$A" ]       # True if string is not empty
+    - `[ "$A" = "$B" ]`   # True if A & B  strings are equal
+    - `[ "$A" != "$B" ]`  # True if strings are not equal
+    - `[ -z "$A" ]`       # True if string is empty/null
+    - `[ -n "$A" ]`       # True if string is not empty
 
 2. **Integer comparisons — `-eq`, `-ne`, `-lt`, `-gt`, `-le`, `-ge`**
 
-    - [ "$X" -eq "$Y" ] # X equal to Y
-    - [ "$X" -ne "$Y" ] # X not equal to Y
-    - [ "$X" -lt "$Y" ] # X less than Y
-    - [ "$X" -gt "$Y" ] # X greater than Y
-    - [ "$X" -le "$Y" ] # X less than or equal to Y
-    - [ "$X" -ge "$Y" ] # X greater than or equal to Y
+    - `[ "$X" -eq "$Y" ]` # X equal to Y
+    - `[ "$X" -ne "$Y" ]` # X not equal to Y
+    - `[ "$X" -lt "$Y" ]` # X less than Y
+    - `[ "$X" -gt "$Y" ]` # X greater than Y
+    - `[ "$X" -le "$Y" ]` # X less than or equal to Y
+    - `[ "$X" -ge "$Y" ]` # X greater than or equal to Y
 
 **Ex: -**
 ```bash
@@ -163,7 +163,6 @@ fi
 ```
 
 6. **Case statements — `case ... esac`**
-
     - Case statement is like synonyms of if & else if statement.
 
 ```bash
@@ -181,8 +180,7 @@ esac
 ### Task 3: Loops
 
 1. **`for` loop — list-based and C-style**
-
-    - **List-based loop
+    - **List-based loop**
 
 ```bash
 
@@ -191,7 +189,7 @@ for ENV in dev stage prod; do
 done
 
 ```
-    - **C-style loop
+    - **C-style loop**
 ```bash
 
 for ((i=1; i<=5; i++)); do
@@ -397,8 +395,7 @@ echo "Global variable: $my_global"
 ---
 
 ### Task 6: Useful Patterns and One-Liners
-Include at least 5 real-world one-liners you find useful. 
-
+    - Include at least 5 real-world one-liners you find useful.
 **Examples:**
     - **Find and delete files older than N days**
         - `find /path/to/logs -type f -mtime +30 -delete`   # Finds files in a specific path modified more than 30 days ago and deletes them.
