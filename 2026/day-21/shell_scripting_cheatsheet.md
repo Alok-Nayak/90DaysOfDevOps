@@ -1,4 +1,18 @@
-# Shell Scripting Cheat Sheet: Build Your Own Reference Guide
+# Shell Scripting Cheat Sheet
+## A quick-reference guide for Linux system administration and DevOps automation pipelines.
+
+##  Quick Reference Table
+
+| Topic | Key Syntax | Example |
+|-------|-----------|---------|
+| Variable | `VAR="value"` | `NAME="DevOps"` |
+| Argument | `$1`, `$2` | `./script.sh arg1` |
+| If | `if [ condition ]; then` | `if [ -f file ]; then` |
+| For loop | `for i in list; do` | `for i in 1 2 3; do` |
+| Function | `name() { ... }` | `greet() { echo "Hi"; }` |
+| Grep | `grep pattern file` | `grep -i "error" log.txt` |
+| Awk | `awk '{print $1}' file` | `awk -F: '{print $1}' /etc/passwd` |
+| Sed | `sed 's/old/new/g' file` | `sed -i 's/foo/bar/g' config.txt` |
 
 ### Task 1: Basics
 
@@ -409,10 +423,99 @@ fi
  
 2. `set -e` — exit on error
 - It terminates the script if any command returns nonzero exit status.
+```bash
+set -e
+
+echo "This command succeeds."
+ls /nonexistent_directory_xyz
+echo "This line will never execute."
+
+```
 
 
 3. `set -u` — treat unset variables as error
+- It forces the script to crash immediately when it encounters an unbound variable.
+```bash
+set -u
+
+TARGET_DIR="/tmp/backup_folder"
+echo "Cleaning up directory: $TARGET_DR" # Typo in variable name here. 
+
+```
 4. `set -o pipefail` — catch errors in pipes
+- It ensures the pipeline returns a failure if any command inside it fails.
+```bash
+# Without pipefail (Returns 0/Success because 'wc' succeeds)
+cat missing_file.txt | wc -l
+echo "Exit code without pipefail: $?" 
+
+# With pipefail
+set -o pipefail
+cat missing_file.txt | wc -l
+echo "Exit code with pipefail: $?" 
+
+```
 5. `set -x` — debug mode (trace execution)
+- This prints a step-by-step trace of commands and their expanded arguments to the terminal before running them. It acts as an interactive blueprint of execution.
+```bash
+#!/bin/bash
+
+set -x
+cat missing_file.txt | wc -l
+echo "Exit code without pipefail: $?" 
+
+set -o pipefail
+cat missing_file.txt | wc -l
+echo "Exit code with pipefail: $?" 
+
+```
 6. Trap — `trap 'cleanup' EXIT`
+- Traps allows us to intercept system signals and the EXIT state and we can define our own actions when a particular signal send to it.
+- It guarantees that a cleanup function runs before the script terminates, regardless of whether it succeeded, crashed, or was interrupted.
+
+**EX-1**
+```bash
+#!/bin/bash
+set -ex
+
+# Define cleanup function
+cleanup() {
+        echo "Starting the TRAP"
+        echo " Cleaning up temporary files..."
+        rm -f /tmp/temp_report.txt
+}
+
+# Register the trap for script EXIT
+trap cleanup EXIT
+
+# Script operations
+echo "Generating report data..." > /tmp/temp_report.txt
+echo "Processing records..."
+ls /invalid_path_to_trigger_crash  
+
+# Script fails, but trap STILL runs!
+
+```
+**Ex-2:**
+```bash
+#!/bin/bash
+
+# Define the trap action
+no_quit() {
+    echo -e "\n Nice try! You tried to press Ctrl+C, but I trapped it."
+    echo "Exiting cleanly now."
+    exit 0
+}
+
+# Trap the INT (Interrupt) signal
+trap no_quit INT
+
+echo "I am running a long loop. Try to stop me using Ctrl+C!"
+for i in {1..5}; do
+    echo "Processing step $i..."
+    sleep 2
+done
+```
+---
+
 
