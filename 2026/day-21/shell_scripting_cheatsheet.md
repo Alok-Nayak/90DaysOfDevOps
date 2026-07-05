@@ -16,27 +16,28 @@
 
 ### Task 1: Basics
 
-1. Shebang (`#!/bin/bash`) — what it does and why it matters
+1. **Shebang (`#!/bin/bash`) — what it does and why it matters**
 
-- It tells the linux kernel which interpreter to use.
+    - It tells the linux kernel which interpreter to use.
 
-2. Running a script — `chmod +x`, `./script.sh`, `bash script.sh`
+2. **Running a script — `chmod +x`, `./script.sh`, `bash script.sh`**
 
-- `chmod +x` - Giving executable permission to a file/script.
-- `./script.sh` - Executing a script via path with executable permission.
-- `bash script.sh` - Executing a script without executaion permission(+x).
+    - `chmod +x` - Giving executable permission to a file/script.
+    - `./script.sh` - Executing a script via path with executable permission.
+    - `bash script.sh` - Executing a script without executaion permission(+x).
  
-3. Comments — single line (`#`) and inline
-- Used to document scripts. Single-line comments start with #.
-- # This is a dedicated single-line comment
-- echo "Hello World" # This is an inline comment
+3. **Comments — single line (`#`) and inline**
 
-4. Variables — declaring, using, and quoting (`$VAR`, `"$VAR"`, `'$VAR'`)
+    - Used to document scripts. Single-line comments start with #.
+    - # This is a dedicated single-line comment
+    - echo "Hello World" # This is an inline comment
 
-- No spaces around the = sign during variable assignment. 
-- Always double-quote variables when expanding to prevent word splitting and globbing.
+4. **Variables — declaring, using, and quoting (`$VAR`, `"$VAR"`, `'$VAR'`)**
 
-```bash
+    - No spaces around the = sign during variable assignment. 
+    - Always double-quote variables when expanding to prevent word splitting and globbing.
+
+**```bash
 NAME="Alok"   # Declare variable
 echo $NAME        # Basic usage
 echo "$NAME"      # Correct: Double quotes allow variable expansion
@@ -62,12 +63,12 @@ echo "Exit status of last command: $?"
 
 ### Task 2: Operators and Conditionals
 
-1. String comparisons — `=`, `!=`, `-z`, `-n`
+1. **String comparisons — `=`, `!=`, `-z`, `-n`**
 
-- [ "$A" = "$B" ]   # True if A & B  strings are equal
-- [ "$A" != "$B" ]  # True if strings are not equal
-- [ -z "$A" ]       # True if string is empty/null
-- [ -n "$A" ]       # True if string is not empty
+    - [ "$A" = "$B" ]   # True if A & B  strings are equal
+    - [ "$A" != "$B" ]  # True if strings are not equal
+    - [ -z "$A" ]       # True if string is empty/null
+    - [ -n "$A" ]       # True if string is not empty
 
 2. Integer comparisons — `-eq`, `-ne`, `-lt`, `-gt`, `-le`, `-ge`
 
