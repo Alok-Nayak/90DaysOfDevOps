@@ -55,6 +55,7 @@ echo '$NAME'      # Literal: Single quotes prevent expansion (outputs: $NAME)
 6. **Command-line arguments — `$0`, `$1`, `$#`, `$@`, `$?`**
     - Positional parameters passed to the script at runtime.
 **myscript.sh**
+
 ```bash
 
 #!/bin/bash
@@ -76,17 +77,12 @@ echo "Exit status of last command: $?"
 
 ```bash
 
-$0 evaluates to: `./myscript.sh` (The name used to call the script)
-
-$1 evaluates to: Hare (The first argument)
-
-$2 evaluates to: Krishna (The second argument)
-
-$# evaluates to: 2 (The total number of arguments passed)
-
-$@ evaluates to: Hare Krishna (All arguments as a combined list)
-
-$? evaluates to: 0 (Assuming the last command succeeded without errors)
+> $0 evaluates to: `./myscript.sh` (The name used to call the script)
+> $1 evaluates to: Hare (The first argument)
+> $2 evaluates to: Krishna (The second argument)
+> $# evaluates to: 2 (The total number of arguments passed)
+> $@ evaluates to: Hare Krishna (All arguments as a combined list)
+> $? evaluates to: 0 (Assuming the last command succeeded without errors)
 
 ```
 ---
@@ -244,6 +240,7 @@ done
 ```
 3. **`until` loop**
     - Runs as long as the condition evaluates to false (stops when true).
+
 ```bash
 COUNT=1
 until [ $COUNT -gt 3 ]; do
@@ -253,6 +250,7 @@ done
 ```
 4. **Loop control — `break`, `continue`**
     - **Break**: Stop the loop entirely right now and don't process anything else.
+
 ```bash
 for num in 1 2 3; do
     if [ "$num" -eq 2 ]; then
@@ -300,25 +298,18 @@ done
 2. **Calling a function**
 
 ```bash
-
 name=${1:- "<Your Name>"}
-
 myfunction(){
         echo "Hello, Have a Great Time $name"
 }
-
 myfunction alok
-
 ```
 3. **Passing arguments to functions — `$1`, `$2` inside functions**
 
 ```bash
 #!/bin/bash
-
 name=${1:- "<Your Name>"}
-
 second_args=${2:-  "<You haven't provided any second argument>"}
-
 myfunction(){
         echo "Hello $name"
         echo "Your second argument is : $second_args"
@@ -330,11 +321,11 @@ myfunction
 
 4. **Return values — `return` vs `echo`**
     - return sends an exit status code, while echo outputs actual data string payload.
+
 ```bash
 check_status() {
     return 1 # Fails status
 }
-
 check_status
 echo "Function exited with code: $?"
 ```
@@ -353,7 +344,6 @@ test_variables
 
 echo "Local variable: $my_local"
 echo "Global variable: $my_global"
-
 ```
 ---
 
@@ -390,15 +380,11 @@ echo "Global variable: $my_global"
 
 ```bash
 
-    -d: Delimiter (the separator character). Must be a single character.
-  
-    -f: Field/Column number (starts at 1).
-
-    -c: Character position.
-
-    - (Hyphen): sSpecifies a range (e.g., 1-3 or 3-).
-
-    , (Comma): Specifies a list (e.g., 1,4).
+   >  -d: Delimiter (the separator character). Must be a single character. 
+   >  -f: Field/Column number (starts at 1).
+   >  -c: Character position.
+   >  - (Hyphen): sSpecifies a range (e.g., 1-3 or 3-).
+   >  , (Comma): Specifies a list (e.g., 1,4).
 
 ```
 5. **`sort` — alphabetical, numerical, reverse, unique**
