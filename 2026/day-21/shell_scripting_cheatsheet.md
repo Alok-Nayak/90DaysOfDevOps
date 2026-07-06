@@ -31,9 +31,9 @@
 
 ```bash
 
-# This is a dedicated single-line comment
-``` 
-    - `echo "Hello World"` # This is an inline comment
+> #   This is a dedicated single-line comment
+> `echo "Hello World"` # This is an inline comment
+```
 
 4. **Variables — declaring, using, and quoting (`$VAR`, `"$VAR"`, `'$VAR'`)**
 
