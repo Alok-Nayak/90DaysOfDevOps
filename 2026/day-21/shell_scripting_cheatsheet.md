@@ -441,8 +441,8 @@ echo "Global variable: $my_global"
     - `systemctl is-active --quiet nginx && echo "Running" || echo "Stopped"`
     - `systemctl status nginx`
 - **Monitor disk usage with alerts**
-    -  df -h / 
-    - if [ "$(df -H / | awk 'NR==2 {print $5}' | cut -d% -f1)" -gt 90 ]; then echo "ALERT: Disk usage is high!"; else echo "Disk is fine."; fi
+    - `df -h / `
+    - `if [ "$(df -H / | awk 'NR==2 {print $5}' | cut -d% -f1)" -gt 90 ]; then echo "ALERT: Disk usage is high!"; else echo "Disk is fine."; fi`
 - **Parse CSV or JSON from command line**
 **data.json**
 
