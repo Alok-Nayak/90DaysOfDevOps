@@ -442,10 +442,10 @@ echo "Global variable: $my_global"
 ]
 
 ```
-    - **commands to parse json data**
-        -  `cat data.json | jq '.[0]'`  # If it's a list, show me just the first item so I can see the pattern.
-        -  `cat data.json | jq '.users[].meta.id'` # Extract the ID 101.
-        -  `cat test-data.json | jq '.[] | {name: .name, language: .language}'`
+**commands to parse json data**
+    -  `cat data.json | jq '.[0]'`  # If it's a list, show me just the first item so I can see the pattern.
+    -  `cat data.json | jq '.users[].meta.id'` # Extract the ID 101.
+    -  `cat test-data.json | jq '.[] | {name: .name, language: .language}'`
 
 - **Tail a log and filter for errors in real time**
   
