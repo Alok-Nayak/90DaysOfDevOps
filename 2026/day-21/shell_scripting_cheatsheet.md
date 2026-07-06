@@ -430,6 +430,7 @@ echo "Global variable: $my_global"
     - `df -h / `
     - `if [ "$(df -H / | awk 'NR==2 {print $5}' | cut -d% -f1)" -gt 90 ]; then echo "ALERT: Disk usage is high!"; else echo "Disk is fine."; fi`
 - **Parse CSV or JSON from command line**
+
 **data.json**
 
 ```bash
@@ -441,12 +442,14 @@ echo "Global variable: $my_global"
 ]
 
 ```
-    - `cat data.json | jq '.[0]'`  # If it's a list, show me just the first item so I can see the pattern.
-    - `cat data.json | jq '.users[].meta.id'` # Extract the ID 101.
-    - `cat test-data.json | jq '.[] | {name: .name, language: .language}'`  # 
+
+>  `cat data.json | jq '.[0]'`  # If it's a list, show me just the first item so I can see the pattern.
+>  `cat data.json | jq '.users[].meta.id'` # Extract the ID 101.
+>  `cat test-data.json | jq '.[] | {name: .name, language: .language}'`
 
 - **Tail a log and filter for errors in real time**
-    - `grep failure linux-logfile.log | tail -5`
+  
+  - `grep failure linux-logfile.log | tail -5`
 ---
 
 ### Task 7: Error Handling and Debugging
