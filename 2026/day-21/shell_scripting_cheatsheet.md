@@ -27,12 +27,13 @@
     - `bash script.sh` - Executing a script without executaion permission(+x).
  
 3. **Comments — single line (`#`) and inline**
-
     - Used to document scripts. Single-line comments start with #.
-    ```bash
+
+```bash
+
 # This is a dedicated single-line comment
-    ```
-    - echo "Hello World" # This is an inline comment
+``` 
+    - `echo "Hello World"` # This is an inline comment
 
 4. **Variables — declaring, using, and quoting (`$VAR`, `"$VAR"`, `'$VAR'`)**
 
@@ -40,7 +41,7 @@
     - Always double-quote variables when expanding to prevent word splitting and globbing.
 
 ```bash
-NAME="Alok"   # Declare variable
+NAME="Alok"       # Declare variable
 echo $NAME        # Basic usage
 echo "$NAME"      # Correct: Double quotes allow variable expansion
 echo '$NAME'      # Literal: Single quotes prevent expansion (outputs: $NAME)
@@ -53,12 +54,39 @@ echo '$NAME'      # Literal: Single quotes prevent expansion (outputs: $NAME)
 
 6. **Command-line arguments — `$0`, `$1`, `$#`, `$@`, `$?`**
     - Positional parameters passed to the script at runtime.
+**myscript.sh**
 ```bash
+
+#!/bin/bash
+
 echo "Script name: $0"
 echo "First argument: $1"
 echo "Total arguments count: $#"
 echo "All arguments passed: $@"
 echo "Exit status of last command: $?"
+
+```
+**EX: -**
+
+- If we save the script as `myscript.sh` and run it in your terminal like this:
+
+`./myscript.sh web_server production`
+
+**Output Breakdown:**
+
+```bash
+
+$0 evaluates to: `./myscript.sh` (The name used to call the script)
+
+$1 evaluates to: Hare (The first argument)
+
+$2 evaluates to: Krishna (The second argument)
+
+$# evaluates to: 2 (The total number of arguments passed)
+
+$@ evaluates to: Hare Krishna (All arguments as a combined list)
+
+$? evaluates to: 0 (Assuming the last command succeeded without errors)
 
 ```
 ---
@@ -191,7 +219,8 @@ for ENV in dev stage prod; do
 done
 
 ```
-    - **C-style loop**
+**C-style loop**
+
 ```bash
 
 for ((i=1; i<=5; i++)); do
@@ -232,6 +261,7 @@ for num in 1 2 3; do
 done
 ```
     - **Continue** : Skip the rest of this specific round and move to the next item.
+
 ```bash
 for num in 1 2 3; do
     if [ "$num" -eq 2 ]; then
@@ -397,25 +427,26 @@ echo "Global variable: $my_global"
 ---
 
 ### Task 6: Useful Patterns and One-Liners
-    - Include at least 5 real-world one-liners you find useful.
-**Examples:**
-    - **Find and delete files older than N days**
-        - `find /path/to/logs -type f -mtime +30 -delete`   # Finds files in a specific path modified more than 30 days ago and deletes them.
-    - **Count lines in all `.log` files**
-        - `wc -l *.log`                                     # Count lines in all .log files
-    - **Replace a string across multiple files**
-        - `sed -i 's/localhost/124.0.0.1/g' *.conf`         # Uses sed to find the word "localhost" and replace it with "124.0.0.1" inside all .conf files, editing them in place (-i).
-    - **Check if a service is running**
-        - `systemctl is-active --quiet nginx && echo "Running" || echo "Stopped"`
-        - `systemctl status nginx`
-    - **Monitor disk usage with alerts**
-        -  df -h / 
-        - if [ "$(df -H / | awk 'NR==2 {print $5}' | cut -d% -f1)" -gt 90 ]; then echo "ALERT: Disk usage is high!"; else echo "Disk is fine."; fi
-    - **Parse CSV or JSON from command line**
-        - 
-    - **Tail a log and filter for errors in real time**
-        - `grep failure linux-logfile.log | tail -5`
 
+**Examples:**
+
+- **Find and delete files older than N days**
+    - `find /path/to/logs -type f -mtime +30 -delete`   # Finds files in a specific path modified more than 30 days ago and deletes them.
+- **Count lines in all `.log` files**
+    - `wc -l *.log`                                     # Count lines in all .log files
+- **Replace a string across multiple files**
+    - `sed -i 's/localhost/124.0.0.1/g' *.conf`         # Uses sed to find the word "localhost" and replace it with "124.0.0.1" inside all .conf files, editing them in place (-i).
+- **Check if a service is running**
+    - `systemctl is-active --quiet nginx && echo "Running" || echo "Stopped"`
+    - `systemctl status nginx`
+- **Monitor disk usage with alerts**
+    -  df -h / 
+    - if [ "$(df -H / | awk 'NR==2 {print $5}' | cut -d% -f1)" -gt 90 ]; then echo "ALERT: Disk usage is high!"; else echo "Disk is fine."; fi
+- **Parse CSV or JSON from command line**
+    -
+
+- **Tail a log and filter for errors in real time**
+    - `grep failure linux-logfile.log | tail -5`
 ---
 
 ### Task 7: Error Handling and Debugging
