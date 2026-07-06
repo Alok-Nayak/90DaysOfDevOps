@@ -429,26 +429,23 @@ echo "Global variable: $my_global"
 - **Monitor disk usage with alerts**
     - `df -h / `
     - `if [ "$(df -H / | awk 'NR==2 {print $5}' | cut -d% -f1)" -gt 90 ]; then echo "ALERT: Disk usage is high!"; else echo "Disk is fine."; fi`
+
 - **Parse CSV or JSON from command line**
+    - Sample **data.json** structure:
+      ```json
+      {
+        "status": "success",
+        "users": [
+          { "name": "Adeel", "meta": { "id": 101 } }
+        ]
+      }
+      ```
+    - Commands to parse JSON data:
+        - `cat data.json | jq '.[0]'` # If it's a list, show the first item to see the pattern
+        - `cat data.json | jq '.users[].meta.id'` # Extract the nested ID (101)
+        - `cat test-data.json | jq '.[] | {name: .name, language: .language}'` # Map specific fields
 
-**data.json**
-
-```bash
-{
-  "status": "success",
-  "users": [
-    { "name": "Adeel", "meta": { "id": 101 } }
-  ]
-]
-
-```
-**commands to parse json data**
-    -  `cat data.json | jq '.[0]'`  # If it's a list, show me just the first item so I can see the pattern.
-    -  `cat data.json | jq '.users[].meta.id'` # Extract the ID 101.
-    -  `cat test-data.json | jq '.[] | {name: .name, language: .language}'`
-
-- **Tail a log and filter for errors in real time**
-  
+- **Tail a log and filter for errors in real time**  
   - `grep failure linux-logfile.log | tail -5`
 ---
 
