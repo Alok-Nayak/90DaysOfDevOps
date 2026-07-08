@@ -5,17 +5,17 @@
 ### cheking git version
 
 ```bash
-git -v or git --version
+`git -v` or `git --version`
 ```
 
 ### Setting up git identity
 
 **Check Global Configuration.**
 ```bash
-- git config --global --list 
-- git config --list
-- git config --global user.name Alok-Nayak
-- git config --global user.email "aloknayak.contact@gmail.com"
+- `git config --global --list` 
+- `git config --list`
+- `git config --global user.name Alok-Nayak`
+- `git config --global user.email "aloknayak.contact@gmail.com"`
 ```
 ![git config ](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f0d088db13b75acffa161eda5e45b03d5de252d5/2026/day-22/day-22-git-snapshots/git-config.png)
 
@@ -26,10 +26,10 @@ git -v or git --version
 3. Checked `.git` directory.
 
 ```bash
-1. mkdir devops-git-practice
-2. cd devops-git-practice
-3. git init
-4. git status
+1. `mkdir devops-git-practice`
+2. `cd devops-git-practice`
+3. `git init`
+4. `git status`
 ```
 ![git init](https://github.com/Alok-Nayak/90DaysOfDevOps/blob/f0d088db13b75acffa161eda5e45b03d5de252d5/2026/day-22/day-22-git-snapshots/git%20init.png)
 ### TASK-3 : Create Your Git Commands Reference
@@ -57,7 +57,7 @@ Done
 
 - Q1. What is the difference between git add and git commit?
 ```bash
-With "git add" we can add the files/dir from workarea to staging area and after then only we can commit it to local repo.
+With `"git add"` we can add the files/dir from workarea to staging area and after then only we can commit it to local repo.
 ```
 - Q2. What does the staging area do? Why doesn't Git just commit directly?
 ```bash
@@ -68,7 +68,7 @@ The staging area gives us freedom to check the files we are going to commit, so 
 ```bash
 git log shows commit history.
 ```
-- Q4. What is the .git/ folder and what happens if you delete it?
+- Q4. What is the `.git/` folder and what happens if you delete it?
 
 ```bash
 So when we initialize git with **git init** it create a .git folder.
