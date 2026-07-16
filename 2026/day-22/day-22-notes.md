@@ -80,5 +80,3 @@ After we initialize git it creates 3 workspace:
 Working Directory: This the space where we create/modify files. And whatever actions performed here(create/delete/modify) git keeps all record of it.
 Staging Area: This is where the files moves after we run "git add ." command, and then we can review the files and can modify them if needed before commiting.
 Repository: The files along with the rivision history stored in a space after commit and that space called repository.
-
-
