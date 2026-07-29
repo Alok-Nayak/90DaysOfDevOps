@@ -45,6 +45,8 @@ Completing this in `devops-git-practice` repo.
 
 5. Verify both branches are visible on GitHub
 
+
+
 6. What is the difference between `origin` and `upstream`?
     - origin is your own copy (fork) of the repository on GitHub, while upstream is the original main repository that everyone else is contributing to.
     - When you want to work on a project, you fork the main repo to your account (origin) so you can push your changes freely without messing up the original project. You then set the original main repo as upstream so you can pull the latest updates from it and keep your local code synced with the team. 
@@ -71,17 +73,14 @@ Completing this in `devops-git-practice` repo.
    
 5. After forking, how do you keep your fork in sync with the original repo?
     - Set the original repo as `upstream`, `fetch` its latest changes, and merge them into the local `main` branch before pushing to `origin`:
-    - ```bash
+```bash
 git remote add upstream <original-repo-url>
 git fetch upstream
 git checkout main
 git merge upstream/main
 git push origin main
-
 ```
 - Or, we can sync directly on GitHub:
-    -  Open the forked repository on GitHub, click the Fetch upstream button near the top, and select Sync fork. After syncing online, simply run `git pull origin main` in the terminal to update the local machine.
-
----
+    -  Open the forked repository on GitHub, click the Fetch upstream button near the top, and select Sync fork. After syncing online, simply run `git pull origin main` in the terminal to update the local machine.-
 
 
