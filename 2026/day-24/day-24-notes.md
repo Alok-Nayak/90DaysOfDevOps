@@ -43,4 +43,30 @@
 
 ---
 
+### Task 2: Git Rebase — Hands-On
 
+1. Create a branch `feature-dashboard` from `main`, add 2-3 commits
+
+- ![day24-task-2-point1]()
+
+2. While on `main`, add a new commit (so `main` moves ahead)
+
+- ![day24-task-2-point2]()
+
+3. Switch to `feature-dashboard` and rebase it onto `main`
+
+- ![day24-task-2-point3]()
+
+4. Observe your `git log --oneline --grah --all` — how does the history look compared to a merge?
+
+- ![day-24-task2-point4-before-rebase]()
+ **and**
+- ![day-24-task2-point4-after-rebase]()
+
+5. Answer in your notes:
+    - What does rebase actually do to your commits?
+    - How is the history different from a merge?
+    - Why should you **never rebase commits that have been pushed and shared** with others?
+    - When would you use rebase vs merge?
+
+---
