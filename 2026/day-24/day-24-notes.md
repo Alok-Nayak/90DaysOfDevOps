@@ -1,28 +1,29 @@
 
 ### Task 1: Git Merge — Hands-On
+---
 
 1. Create a new branch `feature-login` from `main`, add a couple of commits to it
 
-![git-merge-1]()
+![git-merge-1](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/git-merge-1.png)
 
 2. Switch back to `main` and merge `feature-login` into `main`
 
-![git-branch-merge-2]()
+![git-branch-merge-2](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/git-brnach-merge-2_.png)
 
 3. Observe the merge — did Git do a **fast-forward** merge or a **merge commit**?
     - Git performs a Fast-forward merge because main had no new commits after feature-login was created. Git simply moved the main branch pointer forward to match feature-login. No extra commit was created.
 
-![git log --oneline]()
+![git log --oneline](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/git%20log%20--oneline_2.png)
 
 4. Now create another branch `feature-signup`, add commits to it — but also add a commit to `main` before merging
 
-![day-24-task-1-point-4]()
+![day-24-task-1-point-4](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-1-point4.png)
 
-![day-24-task-1-point-4-2]()
+![day-24-task-1-point-4-2](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-1-point-4-2.png)
 
 5. Merge `feature-signup` into `main` — what happens this time?
 
-![day-24-task-1-point-4-3]()
+![day-24-task-1-point-4-3](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task1-point-4-3.png)
     - When i tyry to merge the `featur-signup` branch in `main` where both `feature-branch` and `main` have commits it oppend an editor with a commit message `Merge branch 'feature-signup'.`. Then i edited and added another message and saved. Then i abele to merge it with main.
 
 6. Answer in your notes:
@@ -39,29 +40,30 @@
 - What is a merge conflict? (try creating one intentionally by editing the same line in both branches)
     - A merge conflict occurs when two different branches modify the exact same line(s) of a file in different ways, or when one branch deletes a file that another branch modified. Git cannot automatically decide which change is correct, so it pauses the merge process and flags the file, requiring manual intervention to choose the correct code before finishing the merge.
 
-![day-24-task1-point-6-l]()
+![day-24-task1-point-6](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task1-point-6.png)
 
 ---
 
 ### Task 2: Git Rebase — Hands-On
+---
 
 1. Create a branch `feature-dashboard` from `main`, add 2-3 commits
 
-- ![day24-task-2-point1]()
+- ![day24-task-2-point1](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/task-2-point-1.png)
 
 2. While on `main`, add a new commit (so `main` moves ahead)
 
-- ![day24-task-2-point2]()
+- ![day24-task-2-point2](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-2-point-2.png)
 
 3. Switch to `feature-dashboard` and rebase it onto `main`
 
-- ![day24-task-2-point3]()
+- ![day24-task-2-point3](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-2-point-3.png)
 
 4. Observe your `git log --oneline --grah --all` — how does the history look compared to a merge?
 
-- ![day-24-task2-point4-before-rebase]()
+- ![day-24-task2-point4-before-rebase](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-2-point-4-before-rebase.png)
  **and**
-- ![day-24-task2-point4-after-rebase]()
+- ![day-24-task2-point4-after-rebase](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-2-point-4-after-rebase.png)
 
 5. Answer in your notes:
     - What does rebase actually do to your commits?
@@ -84,25 +86,25 @@
 
 ---
 
-
 ### Task 3: Squash Commit vs Merge Commit
+---
 
 1. Create a branch `feature-profile`, add 4-5 small commits (typo fix, formatting, etc.)
-![day-24-task3-point-1]()
+![day-24-task3-point-1](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-3-point-1.png)
 
 2. Merge it into `main` using `--squash` — what happens?
-![day-24-task3-point-2]()
+![day-24-task3-point-2](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-3-point-2.png)
 
 3. Check `git log` — how many commits were added to `main`?
-![day-24-task3-point-3]()
+![day-24-task3-point-3](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-3-pont-3.png)
 
 4. Now create another branch `feature-settings`, add a few commits
-![day-24-task3-point-4]()
+![day-24-task3-point-4](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-3-point-4.png)
 
 5. Merge it into `main` **without** `--squash` (regular merge) — compare the history
 ![day-24-task3-point-5]()
 
-![day-24-task3-point-5-log]()
+![day-24-task3-point-5-log](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-3-point-5-log.png)
 
 
 6. Answer in your notes:
@@ -119,16 +121,16 @@
 ---
 
 ### Task 4: Git Stash — Hands-On
+---
+
 1. Start making changes to a file but **do not commit**
 2. Now imagine you need to urgently switch to another branch — try switching. What happens?
 
-![day-24-task4-point-2]()
-
-![day-24-task4-point-2]()
+![day-24-task4-point-2](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-4-point-1and2_1.png)
 
 3. Use `git stash` to save your work-in-progress
 
-![day-24-task4-point-3]()                                                                                                                                                                                                                                                                 
+![day-24-task4-point-3_1](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-4-point3_1.png.png)                                                                                                                                                                                                                                                                 
 - When you create a new file on one branch (main) and leave it uncommitted, Git will block you from switching to another branch (feature-1) if that target branch does not have the file.
 
 - **To fix this and switch safely:**
@@ -137,17 +139,14 @@
     - When you come back, run `git stash pop` to restore your files.
 
 4. Switch to another branch, do some work, switch back
-
-![day-24-task4-point-4]()
-
 5. Apply your stashed changes using `git stash pop`
 
-![day-24-task4-point-5]()
+![day-24-task4-point-5](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-4-point-5_.png)
 
 6. Try stashing multiple times and list all stashes
 7. Try applying a specific stash from the list
 
-![day-24-task4-point-6-7]()
+![day-24-task4-point-6-7](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-4-point-6-7.png)
 
 8. Answer in your notes:
     - What is the difference between `git stash pop` and `git stash apply`?
@@ -162,16 +161,17 @@
 ---
 
 ### Task 5: Cherry Picking
+---
 
 1. Create a branch `feature-hotfix`, make 3 commits with different changes
 2. Switch to `main`
 
-![day-24-task-5-point-1-2]()
+![day-24-task-5-point-1-2](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-5-point-1-2.png)
 
 3. Cherry-pick **only the second commit** from `feature-hotfix` onto `main`
 4. Verify with `git log` that only that one commit was applied
 
-![day-24-task-5-point-3-4]()
+![day-24-task-5-point-3-4](https://github.com/Alok-Nayak/90DaysOfDevOps-Core/blob/073f619b77c872623e89fbadb15fb0a5e6c926fa/2026/day-24/day-24-snapshots/day-24-task-5-point-3-4.png)
 
 5. Answer in your notes:
     - What does cherry-pick do?
@@ -186,7 +186,6 @@
         - **Duplicate Commits:** Cherry-picking creates a new commit with a new hash on the target branch. If you later merge or rebase the original branch into main, Git might try to apply the same changes twice, leading to merge conflicts.
         - **Missing Dependencies:** If the commit you cherry-pick relies on code or variables introduced in prior commits on that feature branch, the cherry-picked code will break or fail to compile.
         - **Merge Conflicts:** If the code surrounding the cherry-picked change differs between branches, Git will pause and force you to resolve a merge conflict manually.
-
 ---
 
 
